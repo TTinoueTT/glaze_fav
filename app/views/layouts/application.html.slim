@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title
+      | GlazeFav
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+  body
+    header
+      h3 GLAZE FAV
+      nav
+        ul
+          li about
+          li login
+    main 
+      |メイン
+      = yield
+    footer フッター
