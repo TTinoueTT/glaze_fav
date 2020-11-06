@@ -1,3 +1,28 @@
-h1 原料分析表
+h3 原料分析表
 
-= link_to  "新規登録", new_material_path, class: 'btn btn-primary' 
+= link_to '新規登録', new_material_path, class: 'btn btn-primary'
+
+.mb-3
+table.table.table-hover
+  thead.thead.thead-dark
+    tr
+      th = Material.human_attribute_name(:id)
+      th = Material.human_attribute_name(:name)
+      th = Material.human_attribute_name(:sio2)
+      th = Material.human_attribute_name(:sio2)
+      th = Material.human_attribute_name(:sio2)
+      th = Material.human_attribute_name(:created_at)
+  tbody
+    - @materials.each do |material|
+      tr
+        td = material.id
+        td = link_to material.name, material
+        td = material.sio2
+        td = material.sio2
+        td = material.sio2
+        td = material.created_at
+          / = link_to '編集', edit_material_path(material),
+          /   class: 'btn btn-primary mr-3'
+          / = link_to '削除', material, method: :delete,
+          /   data: { confirm: "タスク「#{material.name}」を削除します。よろしいですか?" },
+          /   class: 'btn btn-danger'

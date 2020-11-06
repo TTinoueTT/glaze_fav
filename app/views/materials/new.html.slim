@@ -1,2 +1,6 @@
-h1 Materials#new
-p Find me in app/views/materials/new.html.slim
+h3 原料の新規登録
+
+.nav.justify-content-end
+  = link_to '原料成分表一覧', materials_path, class: 'badge badge-secondary'
+
+= render partial: 'form', locals: { material: @material }
