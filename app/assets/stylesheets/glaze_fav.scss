@@ -1,48 +1,8 @@
 // Place all the styles related to the glaze_fav controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-// * {
-//   margin: 0%;
-// }
-
-// body {
-//   // レイアウト系
-//   display: flex;
-//   flex-direction: column;
-
-//   color: rgb(150, 150, 150);
-
-//   background: {
-//     image: url("/images/glaze_fav背景.png");
-//     attachment: fixed;
-//     size: cover;
-//   }
-
-//   // テキスト系
-//   font: {
-//     family: 'FOT-筑紫Aオールド明朝 Pr6N M',
-//       '游明朝体',
-//       '游明朝',
-//       YuMincho,
-//       'ヒラギノ明朝 ProN',
-//       'Hiragino Mincho ProN',
-//       'Noto Serif JP',
-//       'ＭＳ Ｐ明朝',
-//       'MS PMincho',
-//       serif;
-//     size: 1.5rem;
-//   }
 
 body {
-
-
-  // .contents {
-  //   width: 80vh;
-  //   display: flex;
-
-  // @import "aside-ipad";
-
-  // @import "aside";
 
 
   main {
@@ -51,20 +11,5 @@ body {
     //       flex: 1;
     // min-height: 50vh;
   }
-}
 
-footer {
-  //     background-color: slategrey;
-  //     writing-mode: vertical-rl;
-  // width: 10%;
-
-  //     // height: 200px;
-  //     // align-self: flex-end;
-  //     // position: absolute;// left: 10px;
-  //     // bottom: 10px;
-  .fa-instagram {
-    font-size: 20px;
-    color: deeppink;
-  }
-}
 }
