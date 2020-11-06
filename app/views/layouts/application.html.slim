@@ -9,12 +9,16 @@ html
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   body
     header
-      h3 GLAZE FAV
+      h2 GLAZE FAV
       nav
         ul
           li about
           li login
-    main 
-      |メイン
+          li = link_to '原料分析表', materials_path
+
+    main
+      |
+      - if flash.notice.present?
+        .alert.alert-success = flash.notice
       = yield
     footer フッター
