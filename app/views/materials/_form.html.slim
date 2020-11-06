@@ -1,0 +1,16 @@
+- if material.errors.present?
+  ul#error_explanation.bg-danger.text-white
+    - material.errors.full_messages.each do |message|
+      li = message
+
+= form_with model: material, local: true do |f|
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control', id: 'material_name'
+    = f.label :sio2
+    = f.text_field :sio2, class: 'form-control', id: 'sio2_num'
+  / .form-group
+  /   = f.label :description
+  /   = f.text_area :description, rows: 5,
+  /     class: 'form-control', id: 'material_description'
+  = f.submit nil, class: 'btn btn-primary'
