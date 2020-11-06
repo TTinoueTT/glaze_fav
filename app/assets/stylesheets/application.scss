@@ -13,7 +13,12 @@
  *= require_tree .
  *= require_self
  */
-@import "bootstrap";
+@import "bootstrap", "setting", "module";
+
+// * {
+//   margin: 0;
+//   padding: 0;
+// }
 
 body {
   // レイアウト系
@@ -21,7 +26,7 @@ body {
   flex-direction: column;
   height: 100vh;
 
-  color: rgb(150, 150, 150);
+  color: rgb(200, 200, 200);
 
   background: {
     // color: call($name: , $args: …);
@@ -33,37 +38,29 @@ body {
 
   // テキスト系
   font: {
-    family: 'FOT-筑紫Aオールド明朝 Pr6N M',
-      '游明朝体',
-      '游明朝',
-      YuMincho,
-      'ヒラギノ明朝 ProN',
-      'Hiragino Mincho ProN',
-      'Noto Serif JP',
-      'ＭＳ Ｐ明朝',
-      'MS PMincho',
-      serif;
-    size: 1.5rem;
+    family: $font-serif;
+    size: 1rem;
   }
 
   header {
     background-color: rgba(31, 34, 27, 0.5);
-    // width: 100%;
+    width: 100%;
     // height: 4rem;
     display: flex;
     flex-direction: row;
 
-    h3 {
-      font: {
-        size: 3rem;
-        weight: bolder;
-      }
-
+    h2 {
       width: 50%;
 
       padding: {
         left: 1rem;
       }
+
+      font: {
+        // size: 3rem;
+        // weight: bolder;
+      }
+
     }
 
     nav {
@@ -93,9 +90,25 @@ body {
   }
 
   main {
-    margin: 0 16px;
+    padding: 1rem;
     //       margin: 0 auto;
     //       flex: 1;
     // min-height: 50vh;
+  }
+
+  footer {
+    background-color: rgba(31, 34, 27, 0.7);
+    //     writing-mode: vertical-rl;
+    width: 100%;
+
+    //     // height: 200px;
+    //     // align-self: flex-end;
+    position: absolute; // left: 10px;
+    bottom: 0px;
+
+    .fa-instagram {
+      font-size: 20px;
+      color: deeppink;
+    }
   }
 }
