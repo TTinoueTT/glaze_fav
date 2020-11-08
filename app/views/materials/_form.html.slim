@@ -7,8 +7,15 @@
   .form-group
     = f.label :name
     = f.text_field :name, class: 'form-control', id: 'material_name'
-    = f.label :sio2
-    = f.text_field :sio2, class: 'form-control', id: 'sio2_num'
+    / = f.label :sio2
+    / = f.text_field :sio2, class: 'form-control', id: 'sio2_num'
+    - molecular_names.each do |molecular_name|
+      = f.label :"#{molecular_name}"
+      = f.number_field :"#{molecular_name}",
+        step: '0.01',
+        class: 'form-control molecular_name',
+        id: "#{molecular_name}_num"
+
   / .form-group
   /   = f.label :description
   /   = f.text_area :description, rows: 5,
