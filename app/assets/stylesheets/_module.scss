@@ -1,5 +1,10 @@
 // フォームのスタイル
-#sio2_num {
+#material_name {
+  width: 50%;
+  padding: 0px 6px;
+}
+
+.molecular_name {
   width: 12.5%;
   padding: 0px 6px;
 }
@@ -10,5 +15,15 @@
 
   .thead.thead-dark {
     width: 100%;
+
+    th {
+      padding: 0.5rem;
+    }
+
+  }
+
+  td {
+    font-family: Segoe UI;
+    padding: 0.5rem;
   }
 }
