@@ -10,14 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_201_106_065_047) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension 'plpgsql'
+ActiveRecord::Schema.define(version: 2020_11_08_140654) do
 
-  create_table 'materials', force: :cascade do |t|
-    t.text 'name'
-    t.float 'sio2'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "materials", force: :cascade do |t|
+    t.text "name"
+    t.decimal "sio2", precision: 4, scale: 2, default: "0.0"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.decimal "tio2", precision: 4, scale: 2, default: "0.0"
+    t.decimal "al2o3", precision: 4, scale: 2, default: "0.0"
+    t.decimal "fe2o3", precision: 4, scale: 2, default: "0.0"
+    t.decimal "cao", precision: 4, scale: 2, default: "0.0"
+    t.decimal "mgo", precision: 4, scale: 2, default: "0.0"
+    t.decimal "k2o", precision: 4, scale: 2, default: "0.0"
+    t.decimal "na2o", precision: 4, scale: 2, default: "0.0"
   end
+
 end

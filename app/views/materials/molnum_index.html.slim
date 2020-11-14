@@ -1,4 +1,4 @@
-h3 原料分析値表
+h3 原料モル値表
 
 = link_to '新規登録', new_material_path, class: 'btn btn-primary'
 
@@ -14,14 +14,8 @@ table.table.table-hover
     tr
       th = Material.human_attribute_name(:id)
       th = Material.human_attribute_name(:name)
-      th = Material.human_attribute_name(:sio2)
-      th = Material.human_attribute_name(:tio2)
-      th = Material.human_attribute_name(:al2o3)
-      th = Material.human_attribute_name(:fe2o3)
-      th = Material.human_attribute_name(:cao)
-      th = Material.human_attribute_name(:mgo)
-      th = Material.human_attribute_name(:k2o)
-      th = Material.human_attribute_name(:na2o)
+      - @molecular_names.each do |molecular_name|
+        th = Material.human_attribute_name(:"#{molecular_name}")
       th = Material.human_attribute_name(:created_at)
       th
   tbody
@@ -29,14 +23,8 @@ table.table.table-hover
       tr
         td = material.id
         td = link_to material.name, material_path(material.id)
-        td = material.sio2
-        td = material.tio2
-        td = material.al2o3
-        td = material.fe2o3
-        td = material.cao
-        td = material.mgo
-        td = material.k2o
-        td = material.na2o
+        - @molnums.each do |key, value|
+          td = (material.public_send(key) / value).round(3)
         td = material.created_at
         td
           = link_to '編集', edit_material_path(material),
