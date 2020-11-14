@@ -13,14 +13,15 @@ class Material < ApplicationRecord
   validates :mgo, numericality: { less_than: 100 }
   validates :k2o, numericality: { less_than: 100 }
   validates :na2o, numericality: { less_than: 100 }
+  # validates :mno, numericality: { less_than: 100 }, greater_than_third_decimal_place: true
 
   # 要素がシンボルの配列を作る %i
   # molecular_columns = %i[sio2 al2o3 fe2o3 cao mgo k2o na2o]
-  private
+  # private
 
-  def greater_than_zero?(molecular_num)
-    molecular_num >= 0
-  end
+  # def greater_than_zero?(molecular_num)
+  #   molecular_num >= 0
+  # end
 
   # def chack_decimal_place; end
 
