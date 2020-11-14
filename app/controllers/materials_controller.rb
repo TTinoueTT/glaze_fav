@@ -1,7 +1,16 @@
 class MaterialsController < ApplicationController
-  before_action :molecular_names, only: %i[new create edit update]
+  before_action :molecular_names, only: %i[index molnum_index new create edit update]
   def index
     @materials = Material.all
+  end
+
+  def molnum_index
+    @materials = Material.all
+    @molnums = {
+      sio2: 60.09, tio2: 79.87, al2o3: 101.96, fe2o3: 159.7,
+      cao: 56.08, mgo: 40.31,
+      k2o: 94.20, na2o: 61.98
+    }
   end
 
   def show
