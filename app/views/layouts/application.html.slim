@@ -8,17 +8,19 @@ html
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    header
-      h2 GLAZE FAV
-      nav
-        ul
-          li about
-          li login
-          li = link_to '原料分析表', materials_path
+    .bg-layer
+      header
+        h2 = link_to 'GLAZE FAV', root_path
 
-    main
-      |
-      - if flash.notice.present?
-        .alert.alert-success = flash.notice
-      = yield
-    footer フッター
+        nav
+          ul
+            li about
+            li login
+            li = link_to '原料分析表', materials_path
+
+      main
+        |
+        - if flash.notice.present?
+          .alert.alert-success = flash.notice
+        = yield
+      footer フッター
