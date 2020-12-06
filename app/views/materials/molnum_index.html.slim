@@ -1,34 +1,37 @@
-h3 原料モル値表
+h3 原料mol値表
 
-= link_to '新規登録', new_material_path, class: 'btn btn-primary'
+= link_to '新規登録', new_material_path, class: 'btn distinct cleardeco'
 
 .mb-3
 ul.nav.nav-tabs
   li.nav-item
-    = link_to '原料分析値', materials_path, class: 'nav-link active'
+    = link_to '原料分析値', materials_path, class: 'nav-link s-bump'
   li.nav-item
-    = link_to '原料mol値', molnum_index_path, class: 'nav-link active'
+    = link_to '原料mol値', molnum_index_path, class: 'nav-link s-bump sss-depressed'
 
-table.table.table-hover
+table.l-bump.ss-depressed
   thead.thead.thead-dark
     tr
-      th = Material.human_attribute_name(:id)
+      / th = Material.human_attribute_name(:id)
       th = Material.human_attribute_name(:name)
-      - @molecular_names.each do |molecular_name|
+      - @molar_masses.keys.each do |molecular_name|
         th = Material.human_attribute_name(:"#{molecular_name}")
-      th = Material.human_attribute_name(:created_at)
+      / th = Material.human_attribute_name(:created_at)
       th
   tbody
     - @materials.each do |material|
       tr
-        td = material.id
+        / td = material.id
         td = link_to material.name, material_path(material.id)
-        - @molnums.each do |key, value|
+        - @molar_masses.each do |key, value|
           td = (material.public_send(key) / value).round(3)
-        td = material.created_at
+        / td = material.created_at
         td
           = link_to '編集', edit_material_path(material),
-            class: 'btn btn-primary mr-3'
+            class: 'btn btn-primary'
           = link_to '削除', material, method: :delete,
             data: { confirm: "原料「#{material.name}」を削除します。よろしいですか?" },
             class: 'btn btn-danger'
+  tfoot
+    tr
+      td

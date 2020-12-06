@@ -8,14 +8,18 @@ $width-main: 800px; // メインエリアの幅
 $width-side: 360px; // サイドバーの幅
 
 // フォント関係の設定 ------------------------
-$font-base: 'Haas Grot Text R Web',
+// ゴシック体
+$font-sans-serif: 'Haas Grot Text R Web',
 'Helvetica Neue',
 Helvetica,
 Arial,
 sans-serif,
-Segoe UI // "Kokoro",
-// Sans-Serif,
+Segoe UI,
+// "Kokoro",
+Sans-Serif,
 ;
+
+// 明朝体
 $font-serif: 'FOT-筑紫Aオールド明朝 Pr6N M',
 '游明朝体',
 '游明朝',
@@ -26,14 +30,60 @@ YuMincho,
 'ＭＳ Ｐ明朝',
 'MS PMincho',
 serif;
-// 色関係の設定 -----------------------------
+// cursive …筆記体
+$font-cursive: cursive;
+// monospace …等幅フォント
+$font-monospace: monospace;
+
+// シャドウ、ライトの長さ/強さ/ぼかし ---------------------
+$sss-shadow: 2px;
+$ss-shadow: 5px;
+$s-shadow: 10px;
+$m-shadow: 20px;
+$l-shadow: 30px;
+
+$sss-light: -1 * $sss-shadow;
+$ss-light: -1 * $ss-shadow;
+$s-light: -1 * $s-shadow;
+$m-light: -1 * $m-shadow;
+$l-light: -1 * $l-shadow;
+
+$sss-shade: 2 * $sss-shadow;
+$ss-shade: 2 * $ss-shadow;
+$s-shade: 2 * $s-shadow;
+$m-shade: 2 * $m-shadow;
+$l-shade: 2 * $l-shadow;
+
+$sss-shadowset: $sss-shadow $sss-shadow $sss-shade;
+$ss-shadowset: $ss-shadow $ss-shadow $ss-shade;
+$s-shadowset: $s-shadow $s-shadow $s-shade;
+$m-shadowset: $m-shadow $m-shadow $m-shade;
+$l-shadowset: $l-shadow $l-shadow $l-shade;
+
+$sss-lightset: $sss-light $sss-light $sss-shade;
+$ss-lightset: $ss-light $ss-light $ss-shade;
+$s-lightset: $s-light $s-light $s-shade;
+$m-lightset: $m-light $m-light $m-shade;
+$l-lightset: $l-light $l-light $l-shade;
+// =================================================
+// 色関係の設定
+// =================================================
 // サイトカラー
+// 背景色
+$color-back: rgba(59, 56, 35, 0.8);
+$color-back-lighten: lighten($color-back, 10%);
+$color-back-darken: darken($color-back, 8%);
+
 $color-main: #0062b2;
 $color-sub: #def1fa;
 // フォントカラー
-$color-font: #333;
+$color-font: rgb(245, 211, 170);
 // リンクカラー
 $color-link: #ff8c28;
+// アクション時のカラー
+$color-action: rgb(255, 117, 140);
+
+
 
 // ブレイクポイント --------------------------
 $breakpoints: (sp: "(max-width:599px)",

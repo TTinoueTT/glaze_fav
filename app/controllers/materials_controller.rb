@@ -1,16 +1,16 @@
 class MaterialsController < ApplicationController
-  before_action :molecular_names, only: %i[index molnum_index new create edit update]
+  before_action :molar_masses, only: %i[index molnum_index new create edit update]
   def index
     @materials = Material.all
   end
 
   def molnum_index
     @materials = Material.all
-    @molnums = {
-      sio2: 60.09, tio2: 79.87, al2o3: 101.96, fe2o3: 159.7,
-      cao: 56.08, mgo: 40.31,
-      k2o: 94.20, na2o: 61.98
-    }
+    # @molnums = {
+    #   sio2: 60.09, tio2: 79.87, al2o3: 101.96, fe2o3: 159.7,
+    #   cao: 56.08, mgo: 40.31,
+    #   k2o: 94.20, na2o: 61.98
+    # }
   end
 
   def show
@@ -56,8 +56,13 @@ class MaterialsController < ApplicationController
           .permit(:name, :sio2, :tio2, :al2o3, :fe2o3, :cao, :mgo, :k2o, :na2o)
   end
 
-  def molecular_names
-    @molecular_names =
-      %w[sio2 tio2 al2o3 fe2o3 cao mgo k2o na2o]
+  def molar_masses
+    # @molecular_names =
+    #   %w[sio2 tio2 al2o3 fe2o3 cao mgo k2o na2o]
+    @molar_masses = {
+      sio2: 60.09, tio2: 79.87, al2o3: 101.96, fe2o3: 159.7,
+      cao: 56.08, mgo: 40.31,
+      k2o: 94.20, na2o: 61.98
+    }
   end
 end
