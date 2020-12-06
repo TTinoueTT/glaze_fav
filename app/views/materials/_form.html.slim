@@ -6,18 +6,19 @@
 = form_with model: material, local: true do |f|
   .form-group
     = f.label :name
-    = f.text_field :name, class: 'form-control', id: 'material_name'
-    / = f.label :sio2
-    / = f.text_field :sio2, class: 'form-control', id: 'sio2_num'
-    - molecular_names.each do |molecular_name|
-      = f.label :"#{molecular_name}"
-      = f.number_field :"#{molecular_name}",
-        step: '0.01',
-        class: 'form-control molecular_name',
-        id: "#{molecular_name}_num"
+    = f.text_field :name,
+      class: 'form-control sss-depressed cleardeco', id: 'material_name'
+    .molform-group
+      - molar_masses.keys.each do |molecular_name|
+        .molinput-set
+          = f.label :"#{molecular_name}"
+          = f.number_field :"#{molecular_name}",
+            step: '0.01',
+            class: 'form-control sss-depressed cleardeco molecular_name',
+            id: "#{molecular_name}_num"
 
   / .form-group
   /   = f.label :description
   /   = f.text_area :description, rows: 5,
   /     class: 'form-control', id: 'material_description'
-  = f.submit nil, class: 'btn btn-primary'
+  = f.submit nil, class: 'btn distinct cleardeco'
