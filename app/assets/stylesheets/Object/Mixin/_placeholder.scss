@@ -1,0 +1,9 @@
+@import "../../Setting/config";
+
+// ==========================================
+// %extend(継承のみ)、@mixin の コンポーネント群
+// ==========================================
+@mixin flexcontainer($direc:row, $wrap:nowrap) {
+  display: flex;
+  flex-flow: $direc $wrap;
+}

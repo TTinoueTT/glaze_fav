@@ -1,0 +1,80 @@
+@import "../../Setting/config";
+
+// ==========================================
+// 平面でっぱり
+// ==========================================
+.sss-bump {
+  box-shadow: $sss-shadowset $color-back-darken,
+    $sss-lightset $color-back-lighten;
+}
+
+.ss-bump {
+  box-shadow: $ss-shadowset $color-back-darken,
+    $ss-lightset $color-back-lighten;
+}
+
+.s-bump {
+  box-shadow: $s-shadowset $color-back-darken,
+    $s-lightset $color-back-lighten;
+}
+
+.m-bump {
+  box-shadow: $m-shadowset $color-back-darken,
+    $m-lightset $color-back-lighten;
+}
+
+.l-bump {
+  box-shadow: $l-shadowset 20px $color-back-darken,
+    $l-lightset 30px $color-back-lighten;
+}
+
+// ==========================================
+// 平面凹み
+// ==========================================
+.sss-depressed {
+  box-shadow: inset $sss-shadowset $color-back-darken,
+    inset $sss-lightset $color-back-lighten;
+  // text-shadow: $s-shadowset $color-action,
+  //   $s-lightset $color-action;
+}
+
+.ss-depressed {
+  box-shadow: inset $ss-shadowset $color-back-darken,
+    inset $ss-lightset $color-back-lighten;
+  // text-shadow: $m-shadowset $color-action,
+  //   $m-lightset $color-action;
+}
+
+.s-depressed {
+  box-shadow: inset $s-shadowset $color-back-darken,
+    inset $s-lightset $color-back-lighten;
+  // text-shadow: $l-shadowset $color-action,
+  //   $l-lightset $color-action;
+}
+
+.m-depressed {
+  box-shadow: inset $m-shadowset $color-back-darken,
+    inset $m-lightset $color-back-lighten;
+  // text-shadow: $l-shadowset $color-action,
+  //   $l-lightset $color-action;
+}
+
+.l-depressed {
+  box-shadow: inset $l-shadowset $color-back-darken,
+    inset $l-lightset $color-back-lighten;
+  // text-shadow: $l-shadowset $color-action,
+  //   $l-lightset $color-action;
+}
+
+// ==========================================
+// 立体的なでっぱり
+// ==========================================
+.distinct {
+  box-shadow:
+    inset $sss-lightset $color-back-darken,
+    inset $sss-shadowset $color-back-lighten,
+    $sss-4d-lightset $color-back-lighten,
+    $sss-shadowset $color-back-darken;
+  text-shadow: $ss-textshadowset $color-link,
+    $ss-textlightset $color-link;
+}
