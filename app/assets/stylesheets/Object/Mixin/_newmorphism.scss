@@ -1,8 +1,18 @@
-@import "setting";
+@import "../../Setting/config";
 
 // ==========================================
 // 平面でっぱり
 // ==========================================
+.sss-bump {
+  box-shadow: $sss-shadowset $color-back-darken,
+    $sss-lightset $color-back-lighten;
+}
+
+.ss-bump {
+  box-shadow: $ss-shadowset $color-back-darken,
+    $ss-lightset $color-back-lighten;
+}
+
 .s-bump {
   box-shadow: $s-shadowset $color-back-darken,
     $s-lightset $color-back-lighten;
@@ -22,7 +32,7 @@
 // 平面凹み
 // ==========================================
 .sss-depressed {
-  box-shadow: inset $ss-shadowset $color-back-darken,
+  box-shadow: inset $sss-shadowset $color-back-darken,
     inset $sss-lightset $color-back-lighten;
   // text-shadow: $s-shadowset $color-action,
   //   $s-lightset $color-action;
@@ -42,6 +52,20 @@
   //   $l-lightset $color-action;
 }
 
+.m-depressed {
+  box-shadow: inset $m-shadowset $color-back-darken,
+    inset $m-lightset $color-back-lighten;
+  // text-shadow: $l-shadowset $color-action,
+  //   $l-lightset $color-action;
+}
+
+.l-depressed {
+  box-shadow: inset $l-shadowset $color-back-darken,
+    inset $l-lightset $color-back-lighten;
+  // text-shadow: $l-shadowset $color-action,
+  //   $l-lightset $color-action;
+}
+
 // ==========================================
 // 立体的なでっぱり
 // ==========================================
@@ -49,11 +73,8 @@
   box-shadow:
     inset $sss-lightset $color-back-darken,
     inset $sss-shadowset $color-back-lighten,
-    $sss-lightset $color-back-lighten,
+    $sss-4d-lightset $color-back-lighten,
     $sss-shadowset $color-back-darken;
-  text-shadow: $m-shadowset $color-link,
-    $m-lightset $color-link;
-  // border: 1px $color-back-darken;
-  // border: 0.5px solid gba($color-back-darken, 0.3);
-  border: 1px solid gba(skyblue, 0.3);
+  text-shadow: $ss-textshadowset $color-link,
+    $ss-textlightset $color-link;
 }

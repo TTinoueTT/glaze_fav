@@ -1,0 +1,90 @@
+@import "../../Setting/config";
+
+// ==========================================
+// テーブルのスタイル
+// ==========================================
+table {
+  width: auto;
+  color: $color-font;
+  background-color: rgba($color-back, 0.3);
+  padding: 3px;
+
+  border: {
+    collapse: separate;
+    spacing: 2px;
+    radius: 8px;
+  }
+
+
+  // outline: 2px solid;
+  // thead内のみ -----------------------------
+  thead {
+    width: 100%;
+
+    tr {
+      border-color: none;
+      margin: 1px;
+
+      .th {
+        min-width: 3rem;
+      }
+
+      .last-cell {
+        min-width: 3rem;
+        max-width: 8.25rem;
+      }
+
+
+
+      &:first-child {
+        th {
+          &:first-child {
+            max-width: 10rem;
+            min-width: 4rem;
+            border-radius: 7px 0 0 0;
+          }
+
+          &:last-child {
+            border-radius: 0 7px 0 0;
+          }
+        }
+      }
+    }
+  }
+
+  // tbody内のみ -----------------------------
+  tbody {
+    tr {
+      &:last-child {
+        td {
+          &:first-child {
+            border-radius: 0 0 0 7px;
+          }
+
+          &:last-child {
+            border-radius: 0 0 7px 0;
+          }
+        }
+      }
+    }
+  }
+
+  // 汎用的なtr以下のスタイル -----------------------------
+  tr {
+    th {
+      padding: 0.5rem;
+    }
+
+    td {
+      font-family: Segoe UI;
+      padding: 3px;
+
+      &:first-child {
+        padding-left: 0.5rem;
+        // white-space: nowrap;// overflow: scroll;
+      }
+
+      &:last-child {}
+    }
+  }
+}

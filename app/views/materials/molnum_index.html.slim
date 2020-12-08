@@ -1,13 +1,11 @@
-h3 原料mol値表
-
 = link_to '新規登録', new_material_path, class: 'btn distinct cleardeco'
 
 .mb-3
 ul.nav.nav-tabs
-  li.nav-item
-    = link_to '原料分析値', materials_path, class: 'nav-link s-bump'
-  li.nav-item
-    = link_to '原料mol値', molnum_index_path, class: 'nav-link s-bump sss-depressed'
+  li.nav-item.sss-bump
+    = link_to '原料分析値', materials_path, class: 'nav-link'
+  li.nav-item.sss-bump.sss-depressed
+    = link_to '原料mol値', molnum_index_path, class: 'nav-link'
 
 table.l-bump.ss-depressed
   thead.thead.thead-dark

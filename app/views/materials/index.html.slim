@@ -1,31 +1,29 @@
-h3 原料分析値表
+= link_to '新規登録', new_material_path, class: 'btn distinct'
 
-= link_to '新規登録', new_material_path, class: 'btn distinct cleardeco'
-
-.mb-3
+/ .mb-3
 ul.nav.nav-tabs
-  li.nav-item
-    = link_to '原料分析値', materials_path, class: 'nav-link s-bump sss-depressed'
-  li.nav-item
-    = link_to '原料mol値', molnum_index_path, class: 'nav-link s-bump'
+  li.nav-item.sss-bump.sss-depressed
+    = link_to '原料分析値', materials_path, class: 'nav-link'
+  li.nav-item.sss-bump
+    = link_to '原料mol値', molnum_index_path, class: 'nav-link'
 
 / table.table.table-hover
 table.l-bump.ss-depressed
-  thead.thead.thead-dark
+  thead
     tr
       / th = Material.human_attribute_name(:id)
-      th = Material.human_attribute_name(:name)
+      th.sss-depressed = Material.human_attribute_name(:name)
       - @molar_masses.keys.each do |molecular_name|
-        th = Material.human_attribute_name(:"#{molecular_name}")
+        th.th.sss-depressed = Material.human_attribute_name(:"#{molecular_name}")
       / th = Material.human_attribute_name(:created_at)
-      th
+      th.last-cell.sss-depressed
   tbody
     - @materials.each do |material|
       tr
         / td = material.id
-        td = link_to material.name, material_path(material.id)
+        td.sss-depressed = link_to material.name, material_path(material.id)
         - @molar_masses.keys.each do |molecular_name|
-          td = material.public_send(molecular_name)
+          td.sss-depressed = material.public_send(molecular_name)
         / td = material.sio2
         / td = material.tio2
         / td = material.al2o3
@@ -35,12 +33,12 @@ table.l-bump.ss-depressed
         / td = material.k2o
         / td = material.na2o
         / td = material.created_at
-        td
+        td.last-cell
           = link_to '編集', edit_material_path(material),
-            class: 'btn'
+            class: 'btn sss-bump'
           = link_to '削除', material, method: :delete,
             data: { confirm: "原料「#{material.name}」を削除します。よろしいですか?" },
-            class: 'btn'
-  tfoot
-    tr
-      td colspan="4"
+            class: 'btn sss-bump'
+  / tfoot
+  /   tr
+  /     td colspan="4"

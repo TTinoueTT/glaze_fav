@@ -1,0 +1,89 @@
+// Place all the styles related to the materials controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+@import "../Layout/header", "../Layout/main", "../Layout/footer";
+@import "../Object/Mixin/newmorphism", "../Object/Mixin/table";
+@import "../Object/Project/module";
+@import "../Setting/config";
+
+// htmlの構造順に記述、装飾的な内容はパーシャルファイルで
+html {
+  position: relative;
+  height: 100%;
+
+  // テキスト系
+  color: $color-font;
+
+  font: {
+    family: $font-sans-serif;
+    size: 1rem;
+  }
+
+  background: {
+    // color: call($name: , $args: …);
+    color: rgb(31, 34, 27);
+    image: url("/images/glaze_fav背景.png");
+    attachment: fixed;
+    size: cover;
+  }
+
+
+  body {
+    // レイアウト系
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100vw;
+    height: 100%;
+    background-color: $color-back;
+
+    // 背景の層を作る
+    // .bg-layer {//   position: relative;
+    //   flex: 1;
+    //   width: 100%;
+    // height: 100%;
+    // background-color: $color-back;
+
+    header {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      height: $header-height;
+    }
+
+    // =============================================
+    main {
+      // height: 100%;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      position: relative;
+      // padding: 2rem;
+      // margin-bottom: 2rem;
+      margin: 2rem;
+      margin-top: 1rem;
+      margin-bottom: $footer-height;
+
+      //       flex: 1;
+      // min-height: 50vh;
+    }
+
+    // =============================================
+    footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      height: $footer-height;
+      background-color: rgba(31, 34, 27, 0.9);
+      //     writing-mode: vertical-rl;
+
+      //     // height: 200px;
+      //     // align-self: flex-end;
+      // position: absolute; // left: 10px;
+      // bottom: 0px;
+    }
+
+    // }
+  }
+}
