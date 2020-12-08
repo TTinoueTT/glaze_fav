@@ -1,23 +1,23 @@
 class MaterialsController < ApplicationController
   before_action :molar_masses, only: %i[index molnum_index new create edit update]
+
   def index
+    @page_title = '原料分析値表'
     @materials = Material.all
   end
 
   def molnum_index
+    @page_title = '原料mol値表'
     @materials = Material.all
-    # @molnums = {
-    #   sio2: 60.09, tio2: 79.87, al2o3: 101.96, fe2o3: 159.7,
-    #   cao: 56.08, mgo: 40.31,
-    #   k2o: 94.20, na2o: 61.98
-    # }
   end
 
   def show
+    @page_title = '詳細'
     @material = Material.find(params[:id])
   end
 
   def new
+    @page_title = '原料の新規登録'
     @material = Material.new
   end
 
@@ -31,6 +31,7 @@ class MaterialsController < ApplicationController
   end
 
   def edit
+    @page_title = '原料データの編集'
     @material = Material.find(params[:id])
   end
 
@@ -65,4 +66,8 @@ class MaterialsController < ApplicationController
       k2o: 94.20, na2o: 61.98
     }
   end
+
+  # def page_title(name)
+
+  # end
 end

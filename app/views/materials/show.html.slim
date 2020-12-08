@@ -1,12 +1,10 @@
-h3 詳細
-
 .nav.justify-content-end
   = link_to '一覧', materials_path, class: 'nav-link'
-table.table.table-hover
+table.l-bump.ss-depressed
   tbody
-    tr
-      th = Material.human_attribute_name(:id)
-      td = @material.id
+    / tr
+    /   th = Material.human_attribute_name(:id)
+    /   td = @material.id
     tr
       th = Material.human_attribute_name(:name)
       td = @material.name
