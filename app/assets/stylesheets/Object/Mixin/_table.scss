@@ -1,90 +1,74 @@
 @import "../../Setting/config";
+@import "placeholder";
 
 // ==========================================
 // テーブルのスタイル
 // ==========================================
-table {
-  width: auto;
+@mixin content-scroll {
+  white-space: nowrap;
+  overflow: scroll;
+}
+
+@mixin contain-btn-cell {
+  padding: 0;
+  @include flexcontainer(row, nowrap);
+
+  >a {
+    margin: 1px;
+  }
+}
+
+@mixin last-cell {
+  min-width: 3rem;
+  max-width: 8.25rem;
+}
+
+@mixin kadomaru($tl:0, $tr:0, $br:0, $bl:0) {
+  border-radius: $tl $tr $br $bl;
+}
+
+%table {
   color: $color-font;
   background-color: rgba($color-back, 0.3);
+  width: 100%;
+  table-layout: fixed;
   padding: 3px;
+  flex: 1;
+}
 
-  border: {
-    collapse: separate;
-    spacing: 2px;
-    radius: 8px;
-  }
+// thead内のみ -----------------------------
+thead {
 
-
-  // outline: 2px solid;
-  // thead内のみ -----------------------------
-  thead {
-    width: 100%;
-
-    tr {
-      border-color: none;
-      margin: 1px;
-
-      .th {
-        min-width: 3rem;
-      }
-
-      .last-cell {
-        min-width: 3rem;
-        max-width: 8.25rem;
-      }
-
-
-
-      &:first-child {
-        th {
-          &:first-child {
-            max-width: 10rem;
-            min-width: 4rem;
-            border-radius: 7px 0 0 0;
-          }
-
-          &:last-child {
-            border-radius: 0 7px 0 0;
-          }
-        }
-      }
-    }
-  }
-
-  // tbody内のみ -----------------------------
-  tbody {
-    tr {
-      &:last-child {
-        td {
-          &:first-child {
-            border-radius: 0 0 0 7px;
-          }
-
-          &:last-child {
-            border-radius: 0 0 7px 0;
-          }
-        }
-      }
-    }
-  }
-
-  // 汎用的なtr以下のスタイル -----------------------------
   tr {
-    th {
-      padding: 0.5rem;
-    }
+    &:first-child {
+      th {
+        &:first-child {
+          // border-radius: $innercell-corner 0 0 0;
+        }
 
-    td {
-      font-family: Segoe UI;
-      padding: 3px;
-
-      &:first-child {
-        padding-left: 0.5rem;
-        // white-space: nowrap;// overflow: scroll;
+        &:last-child {
+          // border-radius: 0 7px 0 0;
+        }
       }
+    }
+  }
+}
 
-      &:last-child {}
+// tbody内のみ -----------------------------
+tbody {
+  tr {
+    &:last-child {
+      td {
+        &:first-child {
+          // border-radius: 0 0 0 7px;
+          // white-space: nowrap;
+          // overflow: scroll;
+        }
+
+        &:last-child {
+          // border-radius: 0 0 7px 0;
+        }
+      }
     }
   }
 }
