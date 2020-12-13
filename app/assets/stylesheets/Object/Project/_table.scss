@@ -1,0 +1,114 @@
+@import "../../Setting/config";
+@import "../../Setting/function";
+@import "../Mixin/placeholder";
+@import "../Mixin/newmorphism";
+@import "../Mixin/table";
+@import "btn";
+
+.main__table {
+  @extend %table;
+  @include table-frame(separate, $table-framewidth, $table-corners);
+  @include depressed(ss);
+
+  & .__thead {
+    width: 100%;
+
+    & .__tr {
+      & .__th {
+        // width: 3.5rem;// max-width: 3.5rem;
+        // min-width: 3rem;// width: 3.75rem;
+        // padding: 0.5rem;
+        @include depressed(sss);
+
+        // 原料名カラム
+        &:first-child {
+          width: 10rem;
+          min-width: 5rem;
+          // background: blue;
+          @include kadomaru($innercell-corner);
+        }
+
+        //分子量カラム
+        &:not(:first-child):not(:last-child) {
+          // background: blue;
+          // width: 3.5rem;
+        }
+
+        // 編集/削除カラム
+        &:last-child {
+          width: 132px;
+          @include kadomaru(0, $innercell-corner);
+        }
+      }
+    }
+  }
+
+  // tbody内 -----------------------------
+  & .__tbody {
+    & .__tr {
+      &:last-child {
+        & .__td {
+
+          // 左下角
+          &:first-child {
+            @include kadomaru(0, 0, 0, $innercell-corner);
+          }
+
+          // 右下角
+          &:last-child {
+            @include kadomaru(0, 0, $innercell-corner);
+          }
+        }
+      }
+
+      & .__td {
+        font-family: Segoe UI;
+        // padding: 3px;
+
+        &:not(:last-child) {
+          @include depressed(sss);
+
+        }
+
+        // 原料名カラムの列
+        &:first-child {
+          padding: 0;
+          height: 0;
+          // padding-left: 0.5rem;
+          @include content-scroll;
+          // @include flexcontainer;
+          // background-color: blue;
+          // display: flex;
+          position: relative;
+
+          & .__link {
+            @extend .a;
+            background-color: blue;
+            display: block;
+            // color: blue;
+            box-sizing: border-box;
+            width: 100%;
+            // height: 100%;
+          }
+        }
+
+        // 編集・削除ボタンのカラム列
+        &:last-child {
+          @include contain-btn-cell;
+          // background-color: blue;
+
+          .main__td_btn {
+            @extend .btn;
+            @include bump(sss);
+          }
+        }
+      }
+    }
+  }
+}
+
+// JavaScript -----------------------------
+.tr-lighting {
+  background-color: $color-back-darken;
+  @include hover-text(ss);
+}
