@@ -1,0 +1,30 @@
+@import "../../Setting/config";
+@import "../../Setting/function";
+@import "../Mixin/placeholder";
+@import "../Mixin/newmorphism";
+@import "../Mixin/btn";
+
+// ==========================================
+// ボタン,リンクのスタイル
+// ==========================================
+.a {
+  @extend %a;
+
+  &:hover {
+    background-color: inherit;
+    // @include hover-text(ss);
+    @include radiation-text(ss, $color-hover);
+  }
+}
+
+.btn {
+  @extend %btn;
+  @include distinct(sss);
+  font-weight: 500;
+
+  &:hover {
+    background-color: $color-back-darken;
+    // @include hover-text(ss);
+    @include radiation-text(ss, $color-hover);
+  }
+}

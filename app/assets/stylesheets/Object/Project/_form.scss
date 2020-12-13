@@ -1,0 +1,55 @@
+@import "../../Setting/config";
+@import "../../Setting/function";
+@import "../Mixin/placeholder";
+@import "../Mixin/newmorphism";
+
+// ==========================================
+// フォームのスタイル
+// ==========================================
+#material_name {
+  width: 50%;
+  padding: 0px 6px;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: $color-font;
+  background-color: $color-back;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  &:focus {
+    color: $color-action;
+    background-color: $color-back-lighten;
+    box-shadow: inset shadowset(ss) $color-back-darken,
+      inset lightset(sss) $color-back-lighten;
+    text-shadow: shadowset(s, tex) $color-action,
+      lightset(s, tex) $color-action;
+  }
+}
+
+// input {
+
+// }
+
+.molform-group {
+  @include flexcontainer(row, wrap);
+
+  .molinput-set {
+    @include flexcontainer(row);
+    margin: 1px;
+
+    .molecular_name {
+      width: 5rem;
+      padding: 0px 6px;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+@import "../../Setting/config";
+@import "../../Setting/function";
+@import "../Mixin/placeholder";
+@import "../Mixin/newmorphism";
+
+// ==========================================
+// ボタン,リンクのパーツ(mixin, %extend)
+// ==========================================
+%a {
+  color: $color-link;
+  // background-color: inherit;
+  background-color: blue;
+  display: block;
+  padding: 0;
+  outline: none;
+  width: max-content;
+  text-decoration: none;
+  transition: all 0.25s ease-in-out;
+}
+
+%btn {
+  @extend %a;
+  padding: 0.25rem 1rem;
+  background-color: rgba($color-back, 0.3);
+  border-radius: 5px;
+}
