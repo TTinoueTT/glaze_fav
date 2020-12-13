@@ -10,13 +10,13 @@ html
   body
 
     header
-      h1 = link_to 'GLAZE FAV', root_path
+      h1 = link_to 'GLAZE FAV', root_path, class: 'a'
 
-      nav
-        ul
-          li about
-          li login
-          li = link_to '原料分析表', materials_path
+      nav.header__nav
+        ul.__ul
+          li.__li about
+          li.__li login
+          li.__li = link_to '原料分析表', materials_path, class: 'a'
 
     main
       |
