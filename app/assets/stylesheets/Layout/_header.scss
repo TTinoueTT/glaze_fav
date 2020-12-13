@@ -1,5 +1,6 @@
 @import "../Setting/config";
 @import "../Object/Mixin/placeholder";
+@import "../Object/Project/module";
 
 // =============================================
 header {
@@ -19,22 +20,26 @@ header {
     }
   }
 
-  nav {
-    width: 50%;
-    @include flexcontainer(inherit);
+  .header__nav {
+    // width: 50%;
+
+    @include flexcontainer(row, wrap);
     justify-content: flex-end;
     position: relative;
+    flex: 1;
 
-    ul {
+
+    & .__ul {
       height: 60%;
-      @include flexcontainer;
+      // background: blue;
+      @include flexcontainer(row, wrap);
       justify-content: flex-end;
       position: absolute;
       bottom: 0;
 
       cursor: pointer;
 
-      li {
+      & .__li {
         padding: 0px 10px;
       }
     }

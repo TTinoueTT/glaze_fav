@@ -1,34 +1,44 @@
 @import "../Setting/config";
+@import "../Object/Mixin/placeholder";
+@import "../Object/Mixin/newmorphism";
+@import "../Object/Project/btn";
+
 
 main {
   h2 {
     margin-bottom: 1rem;
   }
 
-  >a {
+  .main__btn {
+    @extend .btn;
     margin-left: 0.5rem;
     margin-bottom: 0.5rem;
+
+    &:active {
+      @include depressed(sss);
+      @include active-text(s);
+    }
   }
 
   table {
+
     // height: 70%;
     // white-space: nowrap;
     // overflow: scroll;
-  }
-
-
-  td {
-    padding-left: 0.25rem;
-
-    &:last-child {
-      padding: 0;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
+    thead {
+      tr {
+        th {}
+      }
     }
 
-    >a {
-      margin: 1px;
+    tbody {
+      tr {
+        td {
+          // &:last-child {}
+        }
+      }
     }
+
   }
+
 }
