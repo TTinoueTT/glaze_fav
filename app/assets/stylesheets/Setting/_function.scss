@@ -1,1 +1,43 @@
 @import "config";
+
+@function shadowset($scale, $type: null) {
+  $shadow-x: 1 * map-get($shadowlength, $scale);
+  $shadow-y: 1 * map-get($shadowlength, $scale);
+  $blur: 2 * map-get($shadowlength, $scale);
+
+  // distinctクラスのための外側のシャドウ
+  @if $type==distinct {
+    $shadow-x: 0.5 * map-get($shadowlength, $scale);
+    $shadow-y: 0.5 * map-get($shadowlength, $scale);
+    $blur: 4 * map-get($shadowlength, $scale);
+  }
+
+  // text-shadow用のセット(ぼかしを強めにしてる)
+  @else if $type==tex {
+    $shadow-x: 1 * map-get($shadowlength, $scale);
+    $shadow-y: 1 * map-get($shadowlength, $scale);
+    $blur: 20 * map-get($shadowlength, $scale);
+  }
+
+  @return $shadow-x $shadow-y $blur;
+}
+
+@function lightset($scale, $type: null) {
+  $light-x: -1 * map-get($shadowlength, $scale);
+  $light-y: -1 * map-get($shadowlength, $scale);
+  $blur: 2 * map-get($shadowlength, $scale);
+
+  @if $type==distinct {
+    $light-x: 0.5 * map-get($shadowlength, $scale);
+    $light-y: 0.5 * map-get($shadowlength, $scale);
+    $blur: 4 * map-get($shadowlength, $scale);
+  }
+
+  @else if $type==tex {
+    $light-x: -1 * map-get($shadowlength, $scale);
+    $light-y: -1 * map-get($shadowlength, $scale);
+    $blur: 20 * map-get($shadowlength, $scale);
+  }
+
+  @return $light-x $light-y $blur;
+}
