@@ -2,23 +2,39 @@
 document.addEventListener('turbolinks:load', () => {
   console.log('loaded');
   const trs = document.querySelectorAll('.__tr');
-  console.log(trs);
   for (let i = 1; i < trs.length; i++) {
     const tr = trs[i];
-    // td.style.backgroundColor = 'pink';
-
     tr.addEventListener('mouseover', () => {
-      console.log(tr);
       tr.classList.add('tr-lighting');
     });
-
     tr.addEventListener('mouseout', () => {
-      console.log('remove');
       tr.classList.remove('tr-lighting');
-      // tr.classList.contains = ('tr-lighting');
     });
   }
+
+  const tab_ratio = document.getElementById('tab_item__ratio');
+  const tab_mol = document.getElementById('tab_item__mol');
+  const ratio_data = document.getElementById('ratio-data');
+  const mol_data = document.getElementById('mol-data');
+  // 原料分析値のタブをクリックした時のイベント
+  tab_ratio.addEventListener('click', () => {
+    if (ratio_data.classList.contains('invisiblebody')){
+      ratio_data.classList.remove('invisiblebody');
+      mol_data.classList.add('invisiblebody');
+    }
+  });
+  // 原料mol値のタブをクリックした時のイベント
+  tab_mol.addEventListener('click', () => {
+    if (mol_data.classList.contains('invisiblebody')){
+      mol_data.classList.remove('invisiblebody');
+      ratio_data.classList.add('invisiblebody');
+    }
+  });
+  
 });
+
+
+
 
 // h1.addEventListener('mouseover', () => {
 //   h1.classList.add('blue')}
