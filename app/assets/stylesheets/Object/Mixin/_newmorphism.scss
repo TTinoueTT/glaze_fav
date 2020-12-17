@@ -33,3 +33,12 @@
   //   lightset($scale, tex) $color-link;
   @include link-text($scale);
 }
+
+// ==========================================
+// bumpとdepressedを同時に行う
+@mixin bump-depressed($scale, $shadow-width: 0) {
+  box-shadow: shadowset($scale) $shadow-width rgba($color-back-darken, 0.3),
+    lightset($scale) $shadow-width rgba($color-back-lighten, 0.5),
+    inset shadowset($scale) $color-back-darken,
+    inset lightset($scale) $color-back-lighten;
+}
