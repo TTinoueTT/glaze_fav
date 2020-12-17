@@ -1,0 +1,72 @@
+= link_to '新規登録', new_material_path, class: 'btn__distinct'
+
+/ = radio_button :tab_item, '', :ratio, checked: true
+/ = label :tab_item, '_ratio', '原料分析値', class: 'btn-of-tab'
+/ = radio_button :tab_item, '', :mol
+/ = label :tab_item, '_mol', '原料mol値', class: 'btn-of-tab'
+/ .main__ul_tabs
+/   = radio_button :tab_item, '', :ratio, checked: true
+/   = label :tab_item, '_ratio', '原料分析値', class: 'btn-of-tab'
+/   = radio_button :tab_item, '', :mol
+/   = label :tab_item, '_mol', '原料mol値', class: 'btn-of-tab'
+ul.main__ul_tabs
+  li.__li_tab
+    = radio_button :tab_item, '', :ratio, checked: true
+    = label :tab_item, '_ratio', '原料分析値', class: 'btn-of-tab'
+  li.__li_tab
+    = radio_button :tab_item, '', :mol
+    = label :tab_item, '_mol', '原料mol値', class: 'btn-of-tab'
+
+table.main__table
+  thead.__thead
+    tr.__tr
+      / th = Material.human_attribute_name(:id)
+      th.__th = Material.human_attribute_name(:name)
+      - @molar_masses.each_key do |molecular_name|
+        th.__th = Material.human_attribute_name(:"#{molecular_name}")
+      / th = Material.human_attribute_name(:created_at)
+      th.__th
+  tbody.__tbody#ratio-data
+    - @materials.each do |material|
+      tr.__tr
+        / td = material.id
+        / 原料名 ======================================
+        td.__td
+          = link_to material.name, material_path(material.id),
+            class: 'link-of-innercell'
+        / 分子量(% or mol) ======================================
+        - @molar_masses.each_key do |molecular_name|
+          td.__td = material.public_send(molecular_name)
+        / td = material.created_at
+        / 編集と削除のセル ======================================
+        td.__td
+          = link_to '編集', edit_material_path(material),
+            class: 'btn__bump'
+          = link_to '削除', material, method: :delete,
+            data: { confirm: "原料「#{material.name}」を削除します。よろしいですか?" },
+            class: 'btn__bump'
+
+  / tbody.__tbody#mol-data
+  tbody.__tbody#mol-data.invisiblebody
+    - @materials.each do |material|
+      tr.__tr
+        / td = material.id
+        / 原料名 ======================================
+        td.__td
+          = link_to material.name, material_path(material.id),
+            class: 'link-of-innercell'
+        / 分子量(% or mol) ======================================
+        - @molar_masses.each do |key, value|
+          td.__td = (material.public_send(key) / value).round(3)
+        / 編集と削除のセル ======================================
+        td.__td
+          = link_to '編集', edit_material_path(material),
+            class: 'btn__bump'
+          = link_to '削除', material, method: :delete,
+            data: { confirm: "原料「#{material.name}」を削除します。よろしいですか?" },
+            class: 'btn__bump'
+
+/ = render plain: 'OK'
+  / tfoot
+  /   tr
+  /     td colspan="4"
