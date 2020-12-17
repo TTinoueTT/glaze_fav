@@ -8,7 +8,9 @@
 .main__table {
   @extend %table;
   @include table-frame(separate, $table-framewidth, $table-corners);
-  @include depressed(ss);
+  @include bump-depressed(ss);
+  border: 1px solid $color-back;
+  // z-index: 30;
 
   & .__thead {
     width: 100%;
@@ -17,7 +19,7 @@
       & .__th {
         // width: 3.5rem;// max-width: 3.5rem;
         // min-width: 3rem;// width: 3.75rem;
-        // padding: 0.5rem;
+        padding: 0.5rem;
         @include depressed(sss);
 
         // 原料名カラム
@@ -31,7 +33,8 @@
         //分子量カラム
         &:not(:first-child):not(:last-child) {
           // background: blue;
-          // width: 3.5rem;
+          // min-width: 3.5rem;
+          min-width: max-content;
         }
 
         // 編集/削除カラム
@@ -45,6 +48,9 @@
 
   // tbody内 -----------------------------
   & .__tbody {
+    // visibility: collapse;
+    // display: none;
+
     & .__tr {
       &:last-child {
         & .__td {
@@ -65,6 +71,13 @@
         font-family: Segoe UI;
         // padding: 3px;
 
+        &:not(:first-child):not(:last-child) {
+          // display: inline-block;
+          // visibility: collapse;
+          padding-left: 0.25rem;
+          // background: blue;
+        }
+
         &:not(:last-child) {
           @include depressed(sss);
 
@@ -81,14 +94,8 @@
           // display: flex;
           position: relative;
 
-          & .__link {
-            @extend .a;
-            background-color: blue;
-            display: block;
-            // color: blue;
-            box-sizing: border-box;
-            width: 100%;
-            // height: 100%;
+          & .link-of-innercell {
+            // Object/Project/btn内
           }
         }
 
@@ -97,18 +104,40 @@
           @include contain-btn-cell;
           // background-color: blue;
 
-          .main__td_btn {
-            @extend .btn;
-            @include bump(sss);
+          .btn-of-innercell {
+            // Object/Project内
+            // @extend .btn;// @include bump(sss);
           }
         }
       }
+
+
     }
   }
 }
+
+// tbodyの表示 -----------------------------
+// #all:checked~.contents>#all_content,
+// #ratio-data,
+// #mol-data {
+//   visibility: visible;
+// }
+
+// #tab_item__ratio:checked~.main__table>#ratio-data,
+// #tab_item__mol:checked~.main__table>#mol-data {
+//   visibility: visible;
+// }
 
 // JavaScript -----------------------------
 .tr-lighting {
   background-color: $color-back-darken;
   @include hover-text(ss);
+}
+
+// .showbody {
+//     visibility: visible;
+// }
+
+.invisiblebody {
+  visibility: collapse;
 }
