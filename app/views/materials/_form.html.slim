@@ -5,20 +5,20 @@
 
 = form_with model: material, local: true do |f|
   .form-group
-    = f.label :name
+    = f.label :name, class: 'form__label'
     = f.text_field :name,
-      class: 'form-control sss-depressed cleardeco', id: 'material_name'
+      class: 'form__control', id: 'material_name'
     .molform-group
-      - molar_masses.keys.each do |molecular_name|
+      - molar_masses.each_key do |molecular_name|
         .molinput-set
           = f.label :"#{molecular_name}"
           = f.number_field :"#{molecular_name}",
             step: '0.01',
-            class: 'form-control sss-depressed cleardeco molecular_name',
+            class: 'form__control molecular_name',
             id: "#{molecular_name}_num"
 
   / .form-group
   /   = f.label :description
   /   = f.text_area :description, rows: 5,
   /     class: 'form-control', id: 'material_description'
-  = f.submit nil, class: 'btn distinct cleardeco'
+  = f.submit nil, class: 'btn__submit'

@@ -3,37 +3,53 @@
 @import "../Object/Mixin/newmorphism";
 @import "../Object/Project/btn";
 
+// ==========================================
+// レイアウトファイルはmarginとflexboxの指定のみ
+// ==========================================
 
 main {
-  h2 {
+  >h2 {
     margin-bottom: 1rem;
   }
 
-  .main__btn {
-    @extend .btn;
+  >a {
     margin-left: 0.5rem;
     margin-bottom: 0.5rem;
 
-    &:active {
-      @include depressed(sss);
-      @include active-text(s);
+    // &:active {
+    //   @include depressed(sss);
+    //   @include active-text(s);
+    // }
+  }
+
+  >ul {
+    @include flexcontainer(row, wrap);
+    position: relative;
+    //汎用的にrelative、子要素にposition設定するため
+    // top: ●●●; //positionを利用するなら指定
+    margin-left: 5px;
+
+    >li {
+      margin: 0 4px;
+
+      >a {}
     }
   }
 
-  table {
+  >table {
 
     // height: 70%;
     // white-space: nowrap;
     // overflow: scroll;
-    thead {
-      tr {
-        th {}
+    >thead {
+      >tr {
+        >th {}
       }
     }
 
-    tbody {
-      tr {
-        td {
+    >tbody {
+      >tr {
+        >td {
           // &:last-child {}
         }
       }

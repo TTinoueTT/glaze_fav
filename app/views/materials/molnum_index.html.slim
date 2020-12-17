@@ -2,16 +2,16 @@
 
 ul.main__nav
   li.__item
-    = link_to '原料分析値', materials_path, class: '__link'
+    = link_to '原料分析値', materials_path, class: 'nav-btn-of-tab'
   li.__item.sss-depressed
-    = link_to '原料mol値', molnum_index_path, class: '__link'
+    = link_to '原料mol値', molnum_index_path, class: 'nav-btn-of-tab'
 
 table.main__table
   thead.__thead
     tr.__tr
       / th = Material.human_attribute_name(:id)
       th.__th = Material.human_attribute_name(:name)
-      - @molar_masses.keys.each do |molecular_name|
+      - @molar_masses.each_key do |molecular_name|
         th.__th = Material.human_attribute_name(:"#{molecular_name}")
       / th = Material.human_attribute_name(:created_at)
       th.__th
@@ -19,13 +19,18 @@ table.main__table
     - @materials.each do |material|
       tr.__tr
         / td = material.id
-        td.__td = link_to material.name, material_path(material.id)
+        / 原料名 ======================================
+        td.__td
+          = link_to material.name, material_path(material.id),
+            class: 'inner-link-of-cell'
+        / 分子量(% or mol) ======================================
         - @molar_masses.each do |key, value|
           td.__td = (material.public_send(key) / value).round(3)
         / td = material.created_at
+        / 編集と削除のセル ======================================
         td.__td
           = link_to '編集', edit_material_path(material),
-            class: 'main__td_btn'
+            class: 'inner-btn-of-cell'
           = link_to '削除', material, method: :delete,
             data: { confirm: "原料「#{material.name}」を削除します。よろしいですか?" },
-            class: 'main__td_btn'
+            class: 'inner-btn-of-cell'

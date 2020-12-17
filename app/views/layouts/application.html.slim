@@ -10,13 +10,13 @@ html
   body
 
     header
-      h1 = link_to 'GLAZE FAV', root_path, class: 'a'
+      h1.header__h1 = link_to 'GLAZE FAV', root_path, class: 'h1-link '
 
       nav.header__nav
         ul.__ul
-          li.__li about
-          li.__li login
-          li.__li = link_to '原料分析表', materials_path, class: 'a'
+          li.__li = link_to 'about', glaze_fav_about_path, class: 'btn__bump'
+          li.__li = link_to 'login', materials_path, class: 'btn__bump'
+          li.__li = link_to '原料分析表', materials_path, class: 'btn__bump'
 
     main
       |

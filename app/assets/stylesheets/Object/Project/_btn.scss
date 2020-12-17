@@ -7,24 +7,53 @@
 // ==========================================
 // ボタン,リンクのスタイル
 // ==========================================
-.a {
-  @extend %a;
 
-  &:hover {
-    background-color: inherit;
-    // @include hover-text(ss);
-    @include radiation-text(ss, $color-hover);
-  }
+// ==========================================
+// リンクのスタイル
+.h1-link {
+  @extend %a-action;
 }
 
-.btn {
-  @extend %btn;
-  @include distinct(sss);
-  font-weight: 500;
 
-  &:hover {
-    background-color: $color-back-darken;
-    // @include hover-text(ss);
-    @include radiation-text(ss, $color-hover);
-  }
+.link-of-innercell {
+  @extend %a-action;
+  display: block;
+  width: 100%;
+  padding-left: 0.5rem;
+  // padding: 0.5rem;
+  box-sizing: border-box;
+  // @extend .a;
+  // background-color: blue;
+  // color: blue;
+  // height: 100%;
+}
+
+// ==========================================
+// ボタンのスタイル
+.btn__bump {
+  // @extend %a-action;
+  // display: block;
+  @extend %btn-action;
+  @include bump(sss);
+}
+
+.btn-of-tab {
+  // @extend %a-action;
+  // display: block;
+  @extend %btn-action;
+  @include bump(sss);
+  // width: max-content;
+  border-radius: 5px 5px 0px 0px;
+}
+
+
+.btn__distinct {
+  @extend %btn-action;
+  @include distinct(sss);
+  width: max-content;
+}
+
+.btn__submit {
+  @extend %cleardeco;
+  @extend .btn__distinct;
 }

@@ -1,46 +1,44 @@
-= link_to '新規登録', new_material_path, class: 'main__btn'
+/ ================================================
+/ /materials
+/ ================================================
 
-ul.main__nav
-  li.__item.sss-depressed
-    = link_to '原料分析値', materials_path, class: '__link'
-  li.__item
-    = link_to '原料mol値', molnum_index_path, class: '__link'
+/ = link_to '新規登録', new_material_path, class: 'main__btn'
 
-/ table.table.table-hover
-table.main__table
-  thead.__thead
-    tr.__tr
-      / th = Material.human_attribute_name(:id)
-      th.__th = Material.human_attribute_name(:name)
-      - @molar_masses.keys.each do |molecular_name|
-        th.__th = Material.human_attribute_name(:"#{molecular_name}")
-      / th = Material.human_attribute_name(:created_at)
-      th.__th
-  tbody.__tbody
-    - @materials.each do |material|
-      tr.__tr
-        / td = material.id
-        td.__td
-          = link_to material.name, material_path(material.id),
-            class: '__link'
+/ ul.main__nav
+/   li.__item.sss-depressed
+/     = link_to '原料分析値', materials_path, class: 'nav-btn-of-tab'
+/   li.__item
+/     = link_to '原料mol値', molnum_index_path, class: 'nav-btn-of-tab'
 
-        - @molar_masses.keys.each do |molecular_name|
-          td.__td = material.public_send(molecular_name)
-        / td = material.sio2
-        / td = material.tio2
-        / td = material.al2o3
-        / td = material.fe2o3
-        / td = material.cao
-        / td = material.mgo
-        / td = material.k2o
-        / td = material.na2o
-        / td = material.created_at
-        td.__td
-          = link_to '編集', edit_material_path(material),
-            class: 'main__td_btn'
-          = link_to '削除', material, method: :delete,
-            data: { confirm: "原料「#{material.name}」を削除します。よろしいですか?" },
-            class: 'main__td_btn'
+/ table.main__table
+/   thead.__thead
+/     tr.__tr
+/       / th = Material.human_attribute_name(:id)
+/       th.__th = Material.human_attribute_name(:name)
+/       - @molar_masses.each_key do |molecular_name|
+/         th.__th = Material.human_attribute_name(:"#{molecular_name}")
+/       / th = Material.human_attribute_name(:created_at)
+/       th.__th
+/   tbody.__tbody
+/     - @materials.each do |material|
+/       tr.__tr
+/         / td = material.id
+/         td.__td
+/           = link_to material.name, material_path(material.id),
+/             class: 'inner-link-of-cell'
+/         - @molar_masses.each_key do |molecular_name|
+/           td.__td = material.public_send(molecular_name)
+/         / td = material.created_at
+/         td.__td
+/           = link_to '編集', edit_material_path(material),
+/             class: 'inner-btn-of-cell'
+/           = link_to '削除', material, method: :delete,
+/             data: { confirm: "原料「#{material.name}」を削除します。よろしいですか?" },
+/             class: 'inner-btn-of-cell'
+
+= render partial: 'materials-list'
+/ ,
+/   locals: { material: @material, molar_masses: @molar_masses }
   / tfoot
   /   tr
   /     td colspan="4"

@@ -3,44 +3,35 @@
 @import "../Object/Project/module";
 
 // =============================================
+// * レイアウトファイルにはレイアウト系とmarginのプロパティのみ記述
+// ==========================================
+// headerレイアウト
+// ==========================================
 header {
+
   // background-color: rgba(31, 34, 27, 0.5);
-
-
-  h1 {
-    width: 50%;
-
-    padding: {
-      left: 1rem;
-    }
-
-    font: {
-      // size: 3rem;
-      // weight: bolder;
-    }
+  >h1 {
+    // 内容は Object/Project/module内
   }
 
-  .header__nav {
-    // width: 50%;
-
+  >nav {
     @include flexcontainer(row, wrap);
     justify-content: flex-end;
     position: relative;
     flex: 1;
+    // 内容は Object/Project/module内
 
-
-    & .__ul {
-      height: 60%;
-      // background: blue;
+    >ul {
       @include flexcontainer(row, wrap);
       justify-content: flex-end;
       position: absolute;
       bottom: 0;
 
-      cursor: pointer;
+      // 内容は Object/Project/module内
 
-      & .__li {
-        padding: 0px 10px;
+      >li {
+        margin: 0 0.25rem;
+        // 内容は Object/Project/module内
       }
     }
   }

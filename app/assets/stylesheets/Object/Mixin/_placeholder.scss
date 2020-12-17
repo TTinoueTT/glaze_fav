@@ -58,9 +58,10 @@
   animation: neonlit 1.5s linear 500ms 4 alternate backwards;
 }
 
-// %cleardeco {//   border: none;
-//   /* 枠線を消す */
-//   outline: none;
-//   /* クリックした時の枠線を消す */
-//   user-select: none;
-// }
+%cleardeco {
+  border: none;
+  /* 枠線を消す */
+  outline: none;
+  /* クリックした時の枠線を消す */
+  user-select: none;
+}

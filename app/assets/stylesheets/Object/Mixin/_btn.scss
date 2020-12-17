@@ -6,21 +6,56 @@
 // ==========================================
 // ボタン,リンクのパーツ(mixin, %extend)
 // ==========================================
+// a要素の基本データ
 %a {
   color: $color-link;
   // background-color: inherit;
-  background-color: blue;
-  display: block;
+  // background-color: blue;
+  // display: block;
   padding: 0;
-  outline: none;
-  width: max-content;
+  // outline: none;
+  // width: max-content;
   text-decoration: none;
   transition: all 0.25s ease-in-out;
 }
 
+// これをモジュールに使う
+%a-action {
+  @extend %a;
+
+  &:hover {
+    background-color: inherit;
+    // @include hover-text(ss);
+    @include radiation-text(ss, $color-hover);
+  }
+}
+
+
+// ==========================================
+// a要素でボタン表現
+// ==========================================
+// a要素ボタンのデータ
 %btn {
   @extend %a;
   padding: 0.25rem 1rem;
   background-color: rgba($color-back, 0.3);
   border-radius: 5px;
+}
+
+// これをモジュールに使う
+%btn-action {
+  @extend %btn;
+  font-weight: 500;
+  display: inline-block;
+
+  &:hover {
+    background-color: $color-back-darken;
+    // @include hover-text(ss);
+    @include radiation-text(ss, $color-hover);
+  }
+
+  &:active {
+    @include depressed(sss);
+    @include active-text(s);
+  }
 }

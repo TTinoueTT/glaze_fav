@@ -2,14 +2,15 @@ class MaterialsController < ApplicationController
   before_action :molar_masses, only: %i[index molnum_index new create edit update]
 
   def index
-    @page_title = '原料分析値表'
+    @page_title = '原料分析一覧'
     @materials = Material.all
+    # binding.pry
   end
 
-  def molnum_index
-    @page_title = '原料mol値表'
-    @materials = Material.all
-  end
+  # def molnum_index
+  #   @page_title = '原料mol値表'
+  #   @materials = Material.all
+  # end
 
   def show
     @page_title = '詳細'
