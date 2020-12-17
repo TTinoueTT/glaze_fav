@@ -5,42 +5,79 @@
 @import "../Project/btn";
 
 // ==========================================
-// nav-tab
+// header内モジュール
 // ==========================================
+.header__h1 {
+  width: 50%;
+  padding-left: 1rem;
+  // font: {
+  //   size: 3rem;
+  // }
+}
+
 .header__nav {
+  padding-right: 1rem;
+
   & .__ul {
-    & .__li {}
+    height: 60%;
+
+    & .__li {
+      // padding: 0px 10px;
+      cursor: pointer;
+    }
   }
 }
 
+// ==========================================
+// main内モジュール
+// ==========================================
+
 // main内のnavigation
-.main__nav {
-  @include flexcontainer(row, wrap);
-  position: relative;
-  //汎用的にrelative、子要素にposition設定するため
-  // top: ●●●; //positionを利用するなら指定
-  margin-left: 5px;
+// .main__ul_tabs {
+//   border-bottom: none;
+// z-index: 30;
+
+
+
+// input {
+//   // チェックボックスの非表示
+//   display: none;
+
+//   // 選択したタブのスタイルを変える
+//   &:checked+.btn-of-tab {
+//     @include depressed(sss);
+//   }
+// }
+
+// .btn-of-tab {
+//   border-bottom: 2px solid $color-back;
+// }
+
+
+// // }
+
+.main__ul_tabs {
   border-bottom: none;
   // z-index: 30;
 
-  & .__item {
-    margin: 0 4px;
-    padding: 0.5rem 0.5rem;
-    border-radius: 5px 5px 0 0;
+  & .__li_tab {
     border-bottom: 2px solid $color-back;
-    @include bump(sss);
-    @include depressed(sss);
 
-    &:active {
-      @include depressed(sss);
-      @include active-text(s);
+    // .ratio-data {
+    //   visibility: collapse;
+    //   background: blue;
+    // }
+
+    >input {
+      // チェックボックスの非表示
+      display: none;
+
+      // 選択したタブのスタイルを変える
+      &:checked+.btn-of-tab {
+        @include depressed(sss);
+      }
     }
 
-    & .__link {
-      @extend .a;
-      padding: 0.5rem 0.5rem;
-      // height: 1.5rem;
-    }
 
   }
 }
