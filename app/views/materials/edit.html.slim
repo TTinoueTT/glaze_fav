@@ -1,5 +1,9 @@
-.nav.justify-content-end
-  = link_to '原料成分表一覧', materials_path, class: 'badge badge-secondary'
+/ ================================================
+/ /materials/:id/edit
+/ ================================================
+
+/ .nav.justify-content-end
+/   = link_to '原料成分表一覧', materials_path, class: 'badge badge-secondary'
 
 = render partial: 'form',
   locals: { material: @material, molar_masses: @molar_masses }
