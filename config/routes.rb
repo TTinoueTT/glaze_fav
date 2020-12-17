@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :materials do
     # resources :molnum, only: [:index]
   end
-  get 'molnum/index', to: 'materials#molnum_index'
+  # get 'molnum/index', to: 'materials#molnum_index'
 end
 
 #        Prefix Verb   URI Pattern                      Controller#Action
