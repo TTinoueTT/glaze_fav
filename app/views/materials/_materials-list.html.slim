@@ -20,26 +20,26 @@ ul.main__ul_tabs
 table.main__table
   thead.__thead
     tr.__tr
-      / th = Material.human_attribute_name(:id)
-      th.__th = Material.human_attribute_name(:name)
+      / 原料名カラム
+      th.__th_namecolumn = Material.human_attribute_name(:name)
+      / 分子量カラム
       - @molar_masses.each_key do |molecular_name|
         th.__th = Material.human_attribute_name(:"#{molecular_name}")
-      / th = Material.human_attribute_name(:created_at)
-      th.__th
+      / 編集•削除カラム
+      th.__th_lastcolumn
   tbody.__tbody#ratio-data
     - @materials.each do |material|
       tr.__tr
-        / td = material.id
         / 原料名 ======================================
-        td.__td
+        td.__td_namecell
           = link_to material.name, material_path(material.id),
             class: 'link-of-innercell'
         / 分子量(% or mol) ======================================
         - @molar_masses.each_key do |molecular_name|
-          td.__td = material.public_send(molecular_name)
+          td.__td_datacell = material.public_send(molecular_name)
         / td = material.created_at
         / 編集と削除のセル ======================================
-        td.__td
+        td.__td_conbtncell
           = link_to '編集', edit_material_path(material),
             class: 'btn__bump'
           = link_to '削除', material, method: :delete,
@@ -50,16 +50,15 @@ table.main__table
   tbody.__tbody#mol-data.invisiblebody
     - @materials.each do |material|
       tr.__tr
-        / td = material.id
         / 原料名 ======================================
-        td.__td
+        td.__td_namecell
           = link_to material.name, material_path(material.id),
             class: 'link-of-innercell'
         / 分子量(% or mol) ======================================
         - @molar_masses.each do |key, value|
-          td.__td = (material.public_send(key) / value).round(3)
+          td.__td_datacell = (material.public_send(key) / value).round(3)
         / 編集と削除のセル ======================================
-        td.__td
+        td.__td_conbtncell
           = link_to '編集', edit_material_path(material),
             class: 'btn__bump'
           = link_to '削除', material, method: :delete,

@@ -36,6 +36,43 @@
   flex: 1;
 }
 
+@mixin four-corners-kadomaru($corner-radius:0) {
+
+  // 四隅の角を丸くする(table要素にincludeする)
+  tr {
+    &:first-child {
+      th {
+
+        // 左上角
+        &:first-child {
+          @include kadomaru($corner-radius);
+        }
+
+        // 右上角
+        &:last-child {
+          @include kadomaru(0, $corner-radius);
+        }
+      }
+    }
+
+    &:last-child {
+      td {
+
+        // 左下角
+        &:first-child {
+          @include kadomaru(0, 0, 0, $corner-radius);
+        }
+
+        // 右下角
+        &:last-child {
+          @include kadomaru(0, 0, $corner-radius);
+        }
+      }
+    }
+
+  }
+}
+
 // thead内のみ -----------------------------
 thead {
 

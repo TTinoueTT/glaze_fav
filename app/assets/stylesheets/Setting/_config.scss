@@ -63,20 +63,20 @@ $innercell-corner: $table-corners - $table-framewidth;
 // =================================================
 // サイトカラー
 // 背景色
-$color-back: rgba(39, 39, 30, 0.9);
+$color-back: rgba(41, 41, 41, 0.9);
 $color-back-lighten: lighten($color-back, 10%);
 $color-back-darken: darken($color-back, 8%);
 
 // $color-main: #0062b2;// $color-sub: #def1fa;
 // フォントカラー
-$color-font: rgba(245, 211, 170, 0.95);
+$color-font: rgb(245, 211, 170);
 $color-font-shadow: rgb(199, 173, 141);
 // リンクカラー
-$color-link: rgba(240, 158, 51, 0.9);
+$color-link: rgb(240, 158, 51);
 // hover時のカラー
-$color-hover: rgba(255, 117, 140, 0.80);
+$color-hover: rgb(255, 117, 140);
 // active時のカラー
-$color-action: rgba(255, 49, 83, 0.97);
+$color-action: rgb(233, 45, 77);
 
 
 
