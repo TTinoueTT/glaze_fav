@@ -1,2 +1,29 @@
-h1 Admin::Users#show
-p Find me in app/views/admin/users/show.html.slim
+/ ================================================
+/ / (admin/users/show の画面・ユーザー情報画面)
+/ ================================================
+= link_to '一覧', admin_users_path, class: 'btn__distinct'
+
+table.main__table
+  tbody.__tbody
+    tr.__tr
+      th.__th = User.human_attribute_name(:id)
+      td._td = @user.id
+    tr.__tr
+      th.__th = User.human_attribute_name(:name)
+      td._td = @user.name
+    tr.__tr
+      th.__th = User.human_attribute_name(:email)
+      td._td = @user.email
+    tr.__tr
+      th.__th = User.human_attribute_name(:admin)
+      td._td = @user.admin? ? 'あり' : 'なし'
+    tr.__tr
+      th.__th = User.human_attribute_name(:created_at)
+      td._td = @user.created_at
+    tr.__tr
+      th.__th = User.human_attribute_name(:updated_at)
+      td._td = @user.updated_at
+= link_to '編集', edit_admin_user_path, class: 'btn__bump'
+= link_to '削除', [:admin, @user], method: :delete,
+  data: { confirm: "ユーザー「#{@user.name}」を削除します。よろしいですか?" },
+  class: 'btn__bump'

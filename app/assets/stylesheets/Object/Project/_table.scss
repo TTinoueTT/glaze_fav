@@ -5,116 +5,88 @@
 @import "../Mixin/table";
 @import "btn";
 
+// ==========================================
+// tableのためのモジュール
+// ==========================================
 .main__table {
   @extend %table;
   @include table-frame(separate, $table-framewidth, $table-corners);
   @include bump-depressed(ss);
   border: 1px solid $color-back;
   // z-index: 30;
+  @include four-corners-kadomaru($innercell-corner);
+}
 
-  & .__thead {
-    width: 100%;
+.__thead {
+  width: 100%;
+}
 
-    & .__tr {
-      & .__th {
-        // width: 3.5rem;// max-width: 3.5rem;
-        // min-width: 3rem;// width: 3.75rem;
-        padding: 0.5rem;
-        @include depressed(sss);
-
-        // 原料名カラム
-        &:first-child {
-          width: 10rem;
-          min-width: 5rem;
-          // background: blue;
-          @include kadomaru($innercell-corner);
-        }
-
-        //分子量カラム
-        &:not(:first-child):not(:last-child) {
-          // background: blue;
-          // min-width: 3.5rem;
-          min-width: max-content;
-        }
-
-        // 編集/削除カラム
-        &:last-child {
-          width: 132px;
-          @include kadomaru(0, $innercell-corner);
-        }
-      }
-    }
+.__tr {
+  & .__th {
+    // width: (max-content + 10px);
+    // max-width: 3.5rem;
+    // min-width: 3rem;// width: 3.75rem;
+    padding: 0.5rem;
+    @include depressed(sss);
+    @include content-scroll;
   }
 
-  // tbody内 -----------------------------
-  & .__tbody {
-    // visibility: collapse;
-    // display: none;
+  // 最初のth, nameカラム
+  .__th_namecolumn {
+    @extend .__th;
+    width: 10rem;
+    min-width: 5rem;
+  }
 
-    & .__tr {
-      &:last-child {
-        & .__td {
+  // 編集/削除カラム
+  .__th_lastcolumn {
+    @extend .__th;
+    width: 132px;
+  }
 
-          // 左下角
-          &:first-child {
-            @include kadomaru(0, 0, 0, $innercell-corner);
-          }
-
-          // 右下角
-          &:last-child {
-            @include kadomaru(0, 0, $innercell-corner);
-          }
-        }
-      }
-
-      & .__td {
-        font-family: Segoe UI;
-        // padding: 3px;
-
-        &:not(:first-child):not(:last-child) {
-          // display: inline-block;
-          // visibility: collapse;
-          padding-left: 0.25rem;
-          // background: blue;
-        }
-
-        &:not(:last-child) {
-          @include depressed(sss);
-
-        }
-
-        // 原料名カラムの列
-        &:first-child {
-          padding: 0;
-          height: 0;
-          // padding-left: 0.5rem;
-          @include content-scroll;
-          // @include flexcontainer;
-          // background-color: blue;
-          // display: flex;
-          position: relative;
-
-          & .link-of-innercell {
-            // Object/Project/btn内
-          }
-        }
-
-        // 編集・削除ボタンのカラム列
-        &:last-child {
-          @include contain-btn-cell;
-          // background-color: blue;
-
-          .btn-of-innercell {
-            // Object/Project内
-            // @extend .btn;// @include bump(sss);
-          }
-        }
-      }
-
-
-    }
+  // users の管理者カラム
+  .__th_admin {
+    @extend .__th;
+    min-width: max-content;
   }
 }
+
+// tbody内 -----------------------------
+.__tbody {
+  // visibility: collapse;
+  // display: none;
+
+  & .__tr {}
+
+  & .__td {
+    font-family: Segoe UI;
+    @include content-scroll;
+  }
+
+  // 名前の入るセル
+  .__td_namecell {
+    @extend .__td;
+    @include depressed(sss);
+    padding-left: 0.25rem;
+    height: 0;
+  }
+
+  // データの入るセル
+  .__td_datacell {
+    @extend .__td;
+    @include depressed(sss);
+    padding-left: 0.25rem;
+  }
+
+  // 編集・削除ボタンの入るセル
+  .__td_conbtncell {
+    @extend .__td;
+    @include contain-btn-cell;
+  }
+
+
+}
+
 
 // tbodyの表示 -----------------------------
 // #all:checked~.contents>#all_content,

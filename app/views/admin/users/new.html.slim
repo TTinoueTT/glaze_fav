@@ -1,2 +1,6 @@
-h1 Admin::Users#new
-p Find me in app/views/admin/users/new.html.slim
+/ ================================================
+/ / (admin/users/new の画面・ユーザ登録画面)
+/ ================================================
+= link_to '一覧', admin_users_path, class: 'btn__distinct'
+
+= render partial: 'form', locals: { user: @user }

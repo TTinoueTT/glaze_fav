@@ -31,6 +31,13 @@
 // ==========================================
 // main内モジュール
 // ==========================================
+.show__materialname {
+  // display: inline;
+  // @include radiation-text(ss, $color-back-lighten);
+  text-shadow: shadowset(ss, tex) $color-font;
+  text-align: center;
+  padding: 1rem 0;
+}
 
 // main内のnavigation
 // .main__ul_tabs {

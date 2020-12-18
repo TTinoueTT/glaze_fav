@@ -1,48 +1,50 @@
-.nav.justify-content-end
-  = link_to '一覧', materials_path, class: 'nav-link'
-table.l-bump.ss-depressed
-  tbody
-    / tr
-    /   th = Material.human_attribute_name(:id)
-    /   td = @material.id
-    tr
-      th = Material.human_attribute_name(:name)
-      td = @material.name
-    tr
-      th = Material.human_attribute_name(:sio2)
-      td = @material.sio2
-    tr
-      th = Material.human_attribute_name(:tio2)
-      td = @material.tio2
-    tr
-      th = Material.human_attribute_name(:al2o3)
-      td = @material.al2o3
-    tr
-      th = Material.human_attribute_name(:fe2o3)
-      td = @material.fe2o3
-    tr
-      th = Material.human_attribute_name(:cao)
-      td = @material.cao
-    tr
-      th = Material.human_attribute_name(:mgo)
-      td = @material.mgo
-    tr
-      th = Material.human_attribute_name(:k2o)
-      td = @material.k2o
-    tr
-      th = Material.human_attribute_name(:na2o)
-      td = @material.na2o
-    / tr
-    /   th= Material.human_attribute_name(:description)
-    /   td= raw Rinku.auto_link(simple_format(h(@material.description), (), sanitize: false, wrapper_tag: "div"))
-    tr
-      th = Material.human_attribute_name(:created_at)
-      td = @material.created_at
-    tr
-      th = Material.human_attribute_name(:updated_at)
-      td = @material.updated_at
+/ ================================================
+/ / (materials/show の画面・原料詳細画面)
+/ ================================================
+= link_to '一覧', materials_path, class: 'btn__distinct'
 
-= link_to '編集', edit_material_path, class: 'btn btn-primary mr-3'
+h3.show__materialname = @material.name
+
+table.main__table
+  thead.__thead
+    / ヘッダー ======================================
+    tr.__tr
+      th.__th_namecolumn
+      - @molar_masses.each_key do |molecular_name|
+        th.__th = Material.human_attribute_name(:"#{molecular_name}")
+    / 分子量(%) ======================================
+    tr.__tr
+        th.__th_namecolumn 分析値(%)
+        - @molar_masses.each_key do |molecular_name|
+          th.__th = @material.public_send(molecular_name)
+    / 分子量(mol) ======================================
+    tr.__tr
+        th.__th_namecolumn mol値
+        - @molar_masses.each do |key, value|
+          th.__th = (@material.public_send(key) / value).round(3)
+
+  tbody.__tbody
+    / tr.__tr
+    /   / th.__th = Material.human_attribute_name(:name)
+    /   td.__td = @material.name
+    / tr.__tr
+    /   th.__th = Material.human_attribute_name(:sio2)
+    /   td.__td = @material.sio2
+    / tr
+    /   th.__th = Material.human_attribute_name(:description)
+    / td.__td
+    /   = raw Rinku.auto_link(simple_format(h(@material.description),
+    /   (),
+    /   sanitize: false, wrapper_tag: "div"))
+    tr
+      td.__td_namecell = Material.human_attribute_name(:created_at)
+      td.__td_datacell colspan=4 = @material.created_at
+      / td colspan="4"
+    tr
+      td.__td_namecell = Material.human_attribute_name(:updated_at)
+      td.__td_datacell colspan=4 = @material.updated_at
+
+= link_to '編集', edit_material_path, class: 'btn__bump'
 = link_to '削除', @material, method: :delete,
   data: { confirm: "原料「#{@material.name}」を削除します。よろしいですか？" },
-  class: 'btn btn-danger'
+  class: 'btn__bump'
