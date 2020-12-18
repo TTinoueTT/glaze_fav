@@ -1,2 +1,29 @@
-h1 Admin::Users#index
-p Find me in app/views/admin/users/index.html.slim
+/ ================================================
+/ / (admin/users/indexの画面・ユーザー 一覧画面)
+/ ================================================
+= link_to '新規登録', new_admin_user_path, class: 'btn__distinct'
+
+table.main__table
+  thead.__thead
+    tr.__tr
+      th.__th_namecolumn = User.human_attribute_name(:name)
+      th.__th = User.human_attribute_name(:email)
+      th.__th_admin = User.human_attribute_name(:admin)
+      th.__th = User.human_attribute_name(:created_at)
+      th.__th = User.human_attribute_name(:updated_at)
+      th.__th_lastcolumn
+  tbody.__tbody
+    - @users.each do |user|
+      tr.__tr
+        td.__td
+          = link_to user.name, [:admin, user], class: 'link-of-innercell'
+        td.__td = user.email
+        td.__td = user.admin? ? 'あり' : 'なし'
+        td.__td = user.created_at
+        td.__td = user.updated_at
+        / 編集と削除のセル ======================================
+        td.__td
+          = link_to '編集', edit_admin_user_path(user), class: 'btn__bump'
+          = link_to '削除', [:admin, user], method: :delete,
+            data: { confirm: "ユーザー「#{user.name}」を削除します。よろしいですか?" },
+            class: 'btn__bump'
