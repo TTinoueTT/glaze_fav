@@ -1,5 +1,6 @@
 class MaterialsController < ApplicationController
-  before_action :molar_masses, only: %i[index molnum_index new create edit update]
+  # before_action :molar_masses, only: %i[index molnum_index new create edit update]
+  before_action :molar_masses, only: %i[index show new edit]
 
   def index
     @page_title = '原料分析一覧'
