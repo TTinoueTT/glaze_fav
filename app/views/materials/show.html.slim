@@ -30,12 +30,11 @@ table.main__table
     / tr.__tr
     /   th.__th = Material.human_attribute_name(:sio2)
     /   td.__td = @material.sio2
-    / tr
-    /   th.__th = Material.human_attribute_name(:description)
-    / td.__td
-    /   = raw Rinku.auto_link(simple_format(h(@material.description),
-    /   (),
-    /   sanitize: false, wrapper_tag: "div"))
+    tr
+      td.__td_namecell = Material.human_attribute_name(:description)
+      td.__td_textarea colspan=@molar_masses.length
+        = raw Rinku.auto_link(simple_format(h(@material.description), {},
+        sanitize: false, wrapper_tag: 'div'))
     tr
       td.__td_namecell = Material.human_attribute_name(:created_at)
       td.__td_datacell colspan=4 = @material.created_at
