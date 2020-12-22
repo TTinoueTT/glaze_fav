@@ -1,4 +1,5 @@
 @import "../../Setting/config";
+@import "../../Setting/function";
 
 // ==========================================
 // %extend(継承のみ)、@mixin の コンポーネント群
@@ -36,26 +37,26 @@
 // アニメーション
 // ==========================================
 // 文字の発光(初動)
-@mixin radiation-text($scale, $_color) {
-  // color: rgba($_color, 0.6);
-  text-shadow: shadowset($scale, tex) rgba($_color, 0.9),
-    lightset($scale, tex) rgba($_color, 0.9);
+@mixin radiation-text($scale, $color:$color-font) {
+  // color: rgba($color, 0.6);
+  text-shadow: shadowset($scale, tex) rgba($color, 0.9),
+    lightset($scale, tex) rgba($color, 0.9);
 
-  // @keyframes neonlit {
-  //   0% {
-  //     color: rgba($_color, 0.95);
-  //     text-shadow: shadowset($scale, tex) rgba($_color, 0.75),
-  //       lightset($scale, tex) rgba($_color, 0.75);
-  //   }
+  @keyframes neonlit {
+    0% {
+      // color: rgba($color, 0.95);
+      text-shadow: shadowset($scale, tex) rgba($color, 0.9),
+        lightset($scale, tex) rgba($color, 0.9);
+    }
 
-  //   100% {
-  //     color: rgba($_color, 0.75);
-  //     text-shadow: shadowset($scale, tex) rgba($_color, 0.5),
-  //       lightset($scale, tex) rgba($_color, 0.5);
-  //   }
-  // }
+    100% {
+      // color: rgba($color, 0.75);
+      text-shadow: shadowset($scale, tex) rgba($color, 0.5),
+        lightset($scale, tex) rgba($color, 0.5);
+    }
+  }
 
-  // animation: neonlit 1.5s linear 500ms 4 alternate backwards;
+  animation: neonlit 2s ease-in-out 500ms 4 alternate backwards;
 }
 
 %cleardeco {
