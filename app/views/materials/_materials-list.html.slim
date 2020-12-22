@@ -20,6 +20,8 @@ ul.main__ul_tabs
 table.main__table
   thead.__thead
     tr.__tr
+      / カテゴリカラム
+      th.__th_namecolumn = Material.human_attribute_name(:category)
       / 原料名カラム
       th.__th_namecolumn = Material.human_attribute_name(:name)
       / 分子量カラム
@@ -27,9 +29,13 @@ table.main__table
         th.__th = Material.human_attribute_name(:"#{molecular_name}")
       / 編集•削除カラム
       th.__th_lastcolumn
+  / ================================================================
   tbody.__tbody#ratio-data
+    th　カテゴリ名
     - @materials.each do |material|
       tr.__tr
+        / カテゴリ名 ======================================
+        td.__td_namecell = material.category
         / 原料名 ======================================
         td.__td_namecell
           = link_to material.name, material_path(material.id),
@@ -46,10 +52,12 @@ table.main__table
             data: { confirm: "原料「#{material.name}」を削除します。よろしいですか?" },
             class: 'btn__bump'
 
-  / tbody.__tbody#mol-data
+  / ================================================================
   tbody.__tbody#mol-data.invisiblebody
     - @materials.each do |material|
       tr.__tr
+        / カテゴリ名 ======================================
+        td.__td_namecell = material.category
         / 原料名 ======================================
         td.__td_namecell
           = link_to material.name, material_path(material.id),
@@ -68,4 +76,4 @@ table.main__table
 / = render plain: 'OK'
   / tfoot
   /   tr
-  /     td colspan="4"
+  /     td colspan=4

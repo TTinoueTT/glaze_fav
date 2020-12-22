@@ -1,29 +1,29 @@
 / ================================================
 / / (ユーザ登録/編集のフォーム画面用パーシャル)
 / ================================================
-- if material.errors.present?
+- if user.errors.present?
   ul#error_explanation.bg-danger.text-white
-    - material.errors.full_messages.each do |message|
+    - user.errors.full_messages.each do |message|
       li = message
 
 = form_with model: [:admin, user], local: true do |f|
-  .form-group
+  .form__group
     = f.label :name, '名前', class: 'form__label'
     = f.text_field :name,
-      class: 'form__control', id: 'name_input'
-  .form-group
+      class: 'form__control_tex', id: 'name_input'
+  .form__group
     = f.label :email, 'メールアドレス', class: 'form__label'
     = f.email_field :email,
-      class: 'form__control', id: 'email_input'
-  .form-check
+      class: 'form__control_tex', id: 'email_input'
+  .form__group
     = f.label :admin, class: 'form__label' do
       = f.check_box :admin, class: 'form__checkbox'
       | 管理者権限
-  .form-group
+  .form__group
     = f.label :password, 'パスワード', class: 'form__label'
     = f.password_field :password,
-      class: 'form__control', id: 'password_input'
-  .form-group
+      class: 'form__control_tex', id: 'password_input'
+  .form__group
     = f.label :password_confirmation, 'パスワード(確認)', class: 'form__label'
-    = f.password_field :password_confirmation, class: 'form__control'
+    = f.password_field :password_confirmation, class: 'form__control_tex'
   = f.submit '登録する', class: 'btn__submit'

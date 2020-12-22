@@ -2,56 +2,51 @@
 @import "../../Setting/function";
 @import "../Mixin/placeholder";
 @import "../Mixin/newmorphism";
+@import "../Mixin/form";
 
 // ==========================================
 // フォームのスタイル
 // ==========================================
 .form__label {
   @include radiation-text(sss, $color-font);
+  padding-bottom: 0.5rem;
 }
 
-#material_name {
-  width: 50%;
+// フォーム入力部分をまとめるモジュール ======================
+.form__group {
+  @include flexcontainer(column);
+  margin: 1rem 0;
+}
+
+.form__group_mol {
+  @include flexcontainer(row, wrap);
+}
+
+.molinput-set {
+  @include flexcontainer(column);
+  margin: 1rem;
+}
+
+// フォーム入力部分のスタイルを指定 ===============
+.form__control_tex {
+  @extend %form__control;
+  // width: 50%;
   min-width: 10rem;
   padding: 0px 6px;
 }
 
-.form__control {
-  @extend %cleardeco;
-  @include depressed(sss);
-  display: block;
-  width: 100%;
-  height: calc(1.5em + 0.75rem + 2px);
-  padding: 0.375rem 0.75rem;
-  // font-size: 1rem;
-  font-weight: 400;
-  // line-height: 1.5;
-  color: $color-font;
-  background-color: $color-back;
-  background-clip: padding-box;
-  // border: 1px solid #ced4da;
-  border-radius: 0.25rem;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-
-  &:focus {
-    @include hover-text(s);
-    // color: $color-hover;
-    @include bump-depressed(ss);
-    // text-shadow: shadowset(s, tex) $color-action,
-    //   lightset(s, tex) $color-action;
-  }
+.form__control_texarea {
+  @extend %form__control;
+  // width: 50%;
+  min-width: 10rem;
+  min-height: 6rem;
+  padding: 0px 6px;
 }
 
-.molform-group {
-  @include flexcontainer(row, wrap);
-
-  .molinput-set {
-    @include flexcontainer(column);
-    margin: 1rem;
-
-    .molecular_name {
-      width: 5rem;
-      padding: 0px 6px;
-    }
-  }
+.form__control_molratio {
+  @extend %form__control;
+  width: 5rem;
+  padding: 0px 6px;
 }
+
+.form__checkbox {}

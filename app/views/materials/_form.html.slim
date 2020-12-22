@@ -1,24 +1,34 @@
+/ ================================================
+/ / (materials/newまたはeditのフォーム画面)
+/ ================================================
 - if material.errors.present?
   ul#error_explanation.bg-danger.text-white
     - material.errors.full_messages.each do |message|
       li = message
 
 = form_with model: material, local: true do |f|
-  .form-group
+  .form__group
+    = f.label :category, class: 'form__label'
+    = f.select :category,
+      options_for_select(categories),
+      { #include_blank: true,
+      selected: categories.key(material.category) },
+      { class: 'form__control_tex', id: 'material_category' }
+  .form__group
     = f.label :name, class: 'form__label'
     = f.text_field :name,
-      class: 'form__control', id: 'material_name'
-    .molform-group
-      - molar_masses.each_key do |molecular_name|
-        .molinput-set
-          = f.label :"#{molecular_name}"
-          = f.number_field :"#{molecular_name}",
-            step: '0.01',
-            class: 'form__control molecular_name',
-            id: "#{molecular_name}_num"
+      class: 'form__control_tex', id: 'material_name'
+  .form__group_mol
+    - molar_masses.each_key do |molecular_name|
+      .molinput-set
+        = f.label :"#{molecular_name}", class: 'form__label'
+        = f.number_field :"#{molecular_name}",
+          step: '0.01',
+          class: 'form__control_molratio',
+          id: "#{molecular_name}_num"
+  .form__group
+    = f.label :description, class: 'form__label'
+    = f.text_area :description,
+      rows: 5, class: 'form__control_texarea', id: 'material_description'
 
-  / .form-group
-  /   = f.label :description
-  /   = f.text_area :description, rows: 5,
-  /     class: 'form-control', id: 'material_description'
   = f.submit nil, class: 'btn__submit'

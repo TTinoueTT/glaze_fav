@@ -1,0 +1,13 @@
+/ ================================================
+/ / (admin/users/indexの画面・ユーザー 一覧画面)
+/ ================================================
+= form_with scope: :session, local: true do |f|
+  .form-group
+    = f.label :email, 'メールアドレス', class: 'form__label'
+    = f.email_field :email,
+      class: 'form__control', id: 'session_eamil'
+  .form-group
+    = f.label :password, 'パスワード', class: 'form__label'
+    = f.password_field :password,
+      class: 'form__control', id: 'session_password'
+  = f.submit 'ログインする', class: 'btn__submit'

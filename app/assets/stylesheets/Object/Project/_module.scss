@@ -8,8 +8,8 @@
 // header内モジュール
 // ==========================================
 .header__h1 {
-  width: 50%;
-  padding-left: 1rem;
+  // width: 50%;
+  padding: 0 1rem;
   // font: {
   //   size: 3rem;
   // }
@@ -31,12 +31,38 @@
 // ==========================================
 // main内モジュール
 // ==========================================
+.alert-success {
+  font-size: 1rem;
+  // color: white;
+  // background: $color-action;
+  @include video-billboard;
+}
+
 .show__materialname {
   // display: inline;
-  // @include radiation-text(ss, $color-back-lighten);
-  text-shadow: shadowset(ss, tex) $color-font;
+  // @include radiation-text(ss);
+  // text-shadow: shadowset(ss, tex) $color-font;
   text-align: center;
   padding: 1rem 0;
+
+  text-shadow: shadowset(ss, tex) rgba($color-font, 0.9),
+    lightset(ss, tex) rgba($color-font, 0.9);
+
+  @keyframes neonlit {
+    0% {
+      color: rgba($color-font, 0.9);
+      text-shadow: shadowset(ss, tex) rgba($color-font, 0.9),
+        lightset(ss, tex) rgba($color-font, 0.9);
+    }
+
+    100% {
+      color: rgba($color-font, 0.75);
+      text-shadow: shadowset(ss, tex) rgba($color-font, 0.5),
+        lightset(ss, tex) rgba($color-font, 0.5);
+    }
+  }
+
+  animation: neonlit 2s ease-in-out 500ms 4 alternate backwards;
 }
 
 // main内のnavigation

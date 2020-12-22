@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_17_152706) do
+ActiveRecord::Schema.define(version: 2020_12_22_014625) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,15 @@ ActiveRecord::Schema.define(version: 2020_12_17_152706) do
     t.decimal "mgo", precision: 4, scale: 2, default: "0.0"
     t.decimal "k2o", precision: 4, scale: 2, default: "0.0"
     t.decimal "na2o", precision: 4, scale: 2, default: "0.0"
+    t.bigint "user_id", null: false
+    t.string "category"
+    t.text "description"
+    t.decimal "mno", precision: 4, scale: 2, default: "0.0"
+    t.decimal "zno", precision: 4, scale: 2, default: "0.0"
+    t.decimal "bao", precision: 4, scale: 2, default: "0.0"
+    t.decimal "p2o5", precision: 4, scale: 2, default: "0.0"
+    t.decimal "iglos", precision: 4, scale: 2, default: "0.0"
+    t.index ["user_id"], name: "index_materials_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
