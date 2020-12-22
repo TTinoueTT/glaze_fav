@@ -1,4 +1,6 @@
 class Admin::UsersController < ApplicationController
+  before_action :require_admin # 管理権限のあるユーザのみユーザ管理機能を利用できる
+
   def index
     @page_title = 'ユーザー 一覧'
     @users = User.all
@@ -49,5 +51,9 @@ class Admin::UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :admin, :password, :password_confirmation)
+  end
+
+  def require_admin # 後ほどHTTPステータスコード404を返すようにする
+    redirect_to root_path unless current_user.admin?
   end
 end
