@@ -12,6 +12,7 @@ ja:
     attributes:
       material:
         id: ID
+        category: カテゴリ
         name: 原料
         sio2: SiO2
         tio2: TiO2
@@ -21,6 +22,12 @@ ja:
         mgo: MgO
         k2o: K2O
         na2o: Na2O
+        mno: MnO
+        zno: ZnO
+        bao: BaO
+        p2o5: P2O5
+        iglos: Ig.loss
+        description: 説明
         created_at: 登録日時
         updated_at: 更新日時
       user:
