@@ -14,14 +14,21 @@ html
 
       nav.header__nav
         ul.__ul
-          li.__li = link_to 'about', glaze_fav_about_path, class: 'btn__bump'
-          li.__li = link_to 'login', materials_path, class: 'btn__bump'
-          li.__li = link_to '原料分析表', materials_path, class: 'btn__bump'
+          - if current_user
+            li.__li = link_to '原料分析表', materials_path, class: 'btn__bump'
+            li.__li = link_to 'about', glaze_fav_about_path, class: 'btn__bump'
+            - if current_user.admin?
+              li.__li = link_to 'ユーザー一覧', admin_users_path, class: 'btn__bump'
+            li.__li = link_to 'ログアウト', logout_path, method: :delete, class: 'btn__bump'
+          - else
+            li.__li = link_to 'ログイン', login_path, class: 'btn__bump'
 
     main
       |
       - if flash.notice.present?
-        .alert.alert-success = flash.notice
+        .alert-success = flash.notice
+      / .alert-success ログインしました
+
       h2 = @page_title
       = yield
     footer フッター
