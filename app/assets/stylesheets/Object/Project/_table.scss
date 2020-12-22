@@ -3,6 +3,7 @@
 @import "../Mixin/placeholder";
 @import "../Mixin/newmorphism";
 @import "../Mixin/table";
+@import "../Mixin/btn";
 @import "btn";
 
 // ==========================================
@@ -82,6 +83,19 @@
   .__td_conbtncell {
     @extend .__td;
     @include contain-btn-cell;
+  }
+
+  .__td_textarea {
+    @extend .__td;
+    @include depressed(sss);
+    padding-left: 0.25rem;
+    height: 6rem;
+
+    >div {
+      >a {
+        @extend %a;
+      }
+    }
   }
 
 

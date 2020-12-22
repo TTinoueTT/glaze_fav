@@ -63,5 +63,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap'
 gem 'html2slim'
 gem 'rubocop', require: false
-gem 'slim-rails'
 gem 'slim_lint', '~> 0.20.2'
+gem 'slim-rails'
+
+gem 'rinku', '~> 2.0', '>= 2.0.6'

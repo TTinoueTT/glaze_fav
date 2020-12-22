@@ -1,7 +1,7 @@
 class Material < ApplicationRecord
   validates :name, presence: true, uniqueness: true
-  validates :category
-  validates :description
+  # validates :category
+  # validates :description
 
   validates :sio2, numericality: { less_than: 100, greater_than_or_equal_to: 0 }
   # format: { with: /(\d{1,2}\.\d{0,2}|0)/ } # rounded_num: true #
