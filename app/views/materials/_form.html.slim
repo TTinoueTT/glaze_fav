@@ -10,9 +10,11 @@
   .form__group
     = f.label :category, class: 'form__label'
     = f.select :category,
-      options_for_select(categories),
-      { #include_blank: true,
-      selected: categories.key(material.category) },
+      options_for_select(categories,
+      material.category.to_s),
+      # categories.key(material.category).to_s),
+      { include_blank: categories.key(material.category).to_s },
+      # {},
       { class: 'form__control_tex', id: 'material_category' }
   .form__group
     = f.label :name, class: 'form__label'
