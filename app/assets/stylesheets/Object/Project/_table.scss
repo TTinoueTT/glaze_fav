@@ -23,7 +23,7 @@
 
 .__tr {
   & .__th {
-    // width: (max-content + 10px);
+    width: 8%;
     // max-width: 3.5rem;
     // min-width: 3rem;// width: 3.75rem;
     padding: 0.5rem;
@@ -34,7 +34,7 @@
   // 最初のth, nameカラム
   .__th_namecolumn {
     @extend .__th;
-    width: 10rem;
+    width: 15%;
     min-width: 5rem;
   }
 
