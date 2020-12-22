@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+
   root to: 'glaze_fav#top'
   get 'glaze_fav/about'
 
   namespace :admin do
     resources :users
-    # get 'users/new'
-    # get 'users/edit'
-    # get 'users/show'
-    # get 'users/index'
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :materials do
@@ -17,6 +17,9 @@ Rails.application.routes.draw do
 end
 
 #        Prefix   Verb   URI Pattern                      Controller#Action
+#           login GET    /login(.:format)                 sessions#new
+#                 POST   /login(.:format)                 sessions#create
+#          logout DELETE /logout(.:format)                sessions#destroy
 #            root GET    /glaze_fav/top(.:format)         glaze_fav#top
 # glaze_fav_about GET    /glaze_fav/about(.:format)       glaze_fav#about
 #     admin_users GET    /admin/users(.:format)           admin/users#index
