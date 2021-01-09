@@ -5,8 +5,10 @@ html
       | GlazeFav
     = csrf_meta_tags
     = csp_meta_tag
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_pack_tag 'application'
+    / = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    / = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   body
 
     header
@@ -32,3 +34,4 @@ html
       h2 = @page_title
       = yield
     footer フッター
+  / = javascript_pack_tag @js_file.to_s, 'data-turbolinks-track': 'reload'

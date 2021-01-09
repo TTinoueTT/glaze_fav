@@ -1,9 +1,12 @@
 // const { $ } = require("@rails/ujs");
 
-// import "../../javascripts/index"
+const { $ } = require("@rails/ujs");
 
-  document.addEventListener('turbolinks:render', () => {
-  // {
+import "../../javascripts/table"
+
+  // document.addEventListener('turbolinks:render', () => {
+  // document.addEventListener('turbolinks:render', () => {
+  window.onload = function() {
     console.log('loaded index');
     
     const tabRatio = document.getElementById('tab_item__ratio');
@@ -26,6 +29,8 @@
         ratioData.classList.add('invisiblebody');
       }
     });
+  }
+  // {
   // }
-  });
+  // });
 

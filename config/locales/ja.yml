@@ -27,6 +27,7 @@ ja:
         bao: BaO
         p2o5: P2O5
         iglos: Ig.loss
+        sum: 合計値
         description: 説明
         created_at: 登録日時
         updated_at: 更新日時

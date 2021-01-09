@@ -1,15 +1,16 @@
+// ==========================================
+// ボタン,リンクのスタイル
+// ==========================================
 @import "../../Setting/config";
 @import "../../Setting/function";
 @import "../Mixin/placeholder";
 @import "../Mixin/newmorphism";
 @import "../Mixin/btn";
 
-// ==========================================
-// ボタン,リンクのスタイル
-// ==========================================
 
 // ==========================================
 // リンクのスタイル
+// ==========================================
 .h1-link {
   @extend %a-action;
 }
@@ -30,6 +31,8 @@
 
 // ==========================================
 // ボタンのスタイル
+// ==========================================
+// 平に出っ張ったボタン
 .btn__bump {
   // @extend %a-action;
   // display: block;
@@ -37,6 +40,7 @@
   @include bump(sss);
 }
 
+// ul-li内のタブ状のボタン
 .btn-of-tab {
   // @extend %a-action;
   // display: block;
@@ -46,13 +50,14 @@
   border-radius: 5px 5px 0px 0px;
 }
 
-
+// くっきりした立体的なボタン
 .btn__distinct {
   @extend %btn-action;
   @include distinct(sss);
   width: max-content;
 }
 
+// submit用のボタン
 .btn__submit {
   @extend %cleardeco;
   @extend .btn__distinct;
