@@ -1,12 +1,13 @@
+// ==========================================
+// フォームのスタイル
+// ==========================================
 @import "../../Setting/config";
 @import "../../Setting/function";
 @import "../Mixin/placeholder";
 @import "../Mixin/newmorphism";
 @import "../Mixin/form";
 
-// ==========================================
-// フォームのスタイル
-// ==========================================
+// ラベル ============================================
 .form__label {
   @include radiation-text(sss, $color-font);
   padding-bottom: 0.5rem;
@@ -50,3 +51,8 @@
 }
 
 .form__checkbox {}
+
+#inputs_sum {
+  text-align: right;
+  padding: 0px 6px;
+}
