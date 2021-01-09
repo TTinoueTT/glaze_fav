@@ -1,12 +1,18 @@
 / ================================================
 / / (materials/newまたはeditのフォーム画面)
 / ================================================
+= javascript_pack_tag 'materials/form'
+
 - if material.errors.present?
   ul#error_explanation.bg-danger.text-white
     - material.errors.full_messages.each do |message|
       li = message
 
 = form_with model: material, local: true do |f|
+  / html: { id: 'material_form',
+  /   oninput: "sum.value = Number(sio2_num.value) + Number(tio2_num.value);" }
+
+  / カテゴリの入力欄
   .form__group
     = f.label :category, class: 'form__label'
     = f.select :category,
@@ -16,11 +22,14 @@
       { include_blank: categories.key(material.category).to_s },
       # {},
       { class: 'form__control_tex', id: 'material_category' }
+  / 原料名の入力欄
   .form__group
     = f.label :name, class: 'form__label'
     = f.text_field :name,
       class: 'form__control_tex', id: 'material_name'
+  / 成分比の入力欄
   .form__group_mol
+    / - ids = []
     - molar_masses.each_key do |molecular_name|
       .molinput-set
         = f.label :"#{molecular_name}", class: 'form__label'
@@ -28,9 +37,19 @@
           step: '0.01',
           class: 'form__control_molratio',
           id: "#{molecular_name}_num"
+      / - ids << "#{molecular_name}_num"
+    / 合計値の出力欄
+    .molinput-set
+      / - binding.pry
+      = f.label :sum, class: 'form__label'
+      / output.form__control_molratio name="sum" form="material_form" for="#{ids}" 0
+      p#inputs_sum 0
+  / 原料の説明の入力欄
   .form__group
     = f.label :description, class: 'form__label'
     = f.text_area :description,
       rows: 5, class: 'form__control_texarea', id: 'material_description'
-
+  / 登録ボタン
   = f.submit nil, class: 'btn__submit'
+
+
