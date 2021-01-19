@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   root to: 'glaze_fav#top'
   get 'glaze_fav/about'
+  get '/periodic_table', to: 'glaze_fav#periodic_table'
 
   namespace :admin do
     resources :users
@@ -20,8 +21,11 @@ end
 #           login GET    /login(.:format)                 sessions#new
 #                 POST   /login(.:format)                 sessions#create
 #          logout DELETE /logout(.:format)                sessions#destroy
+
 #            root GET    /glaze_fav/top(.:format)         glaze_fav#top
 # glaze_fav_about GET    /glaze_fav/about(.:format)       glaze_fav#about
+# periodic_table  GET    /periodic_table(.:format)        glaze_fav#periodic_table
+
 #     admin_users GET    /admin/users(.:format)           admin/users#index
 #                 POST   /admin/users(.:format)           admin/users#create
 #  new_admin_user GET    /admin/users/new(.:format)       admin/users#new
