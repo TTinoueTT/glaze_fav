@@ -6,4 +6,8 @@ class GlazeFavController < ApplicationController
   def about
     @page_title = 'GLAZE FAV について'
   end
+
+  # def periodic_table
+  #   @page_title = '周期表'
+  # end
 end
