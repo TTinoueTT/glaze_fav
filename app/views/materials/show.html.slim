@@ -27,9 +27,6 @@ table.main__table
     / tr.__tr
     /   / th.__th = Material.human_attribute_name(:name)
     /   td.__td = @material.name
-    / tr.__tr
-    /   th.__th = Material.human_attribute_name(:sio2)
-    /   td.__td = @material.sio2
     tr
       td.__td_namecell = Material.human_attribute_name(:description)
       td.__td_textarea colspan=@molar_masses.length
@@ -37,11 +34,11 @@ table.main__table
         sanitize: false, wrapper_tag: 'div'))
     tr
       td.__td_namecell = Material.human_attribute_name(:created_at)
-      td.__td_datacell colspan=4 = @material.created_at
+      td.__td_datacell colspan=5 = @material.created_at
       / td colspan="4"
     tr
       td.__td_namecell = Material.human_attribute_name(:updated_at)
-      td.__td_datacell colspan=4 = @material.updated_at
+      td.__td_datacell colspan=5 = @material.updated_at
 
 = link_to '編集', edit_material_path, class: 'btn__bump'
 = link_to '削除', @material, method: :delete,

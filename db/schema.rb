@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_22_014625) do
+ActiveRecord::Schema.define(version: 2021_01_19_035328) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,17 @@ ActiveRecord::Schema.define(version: 2020_12_22_014625) do
     t.decimal "p2o5", precision: 4, scale: 2, default: "0.0"
     t.decimal "iglos", precision: 4, scale: 2, default: "0.0"
     t.index ["user_id"], name: "index_materials_on_user_id"
+  end
+
+  create_table "periodic_atoms", force: :cascade do |t|
+    t.string "name"
+    t.string "symbol"
+    t.integer "atomic_num"
+    t.integer "group"
+    t.integer "period"
+    t.decimal "weight"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
