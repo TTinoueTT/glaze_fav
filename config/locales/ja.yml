@@ -39,6 +39,15 @@ ja:
         password_confirmation: パスワード(確認)
         created_at: 登録日時
         updated_at: 更新日時
+      periodic_atom:
+        name: 原子名
+        symbol: 元素記号
+        atomic_num: 原子番号
+        group: 族
+        period: 周期
+        weight: 原子量
+        created_at: 登録日時
+        updated_at: 更新日時
   date:
     abbr_day_names:
       - 日
