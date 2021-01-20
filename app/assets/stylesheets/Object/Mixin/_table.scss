@@ -109,3 +109,15 @@ tbody {
     }
   }
 }
+
+// .__periodic_table内 -----------------------------
+@mixin elect_shell($shell-size) {
+  border: 1px dotted $color-font-dark;
+  width: $shell-size;
+  height: $shell-size;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  // border: 1px solid $color-font;
+}
