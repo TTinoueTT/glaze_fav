@@ -54,6 +54,15 @@ $footer-height: 3rem;
 
 $table-corners: 8px;
 $table-framewidth: 2px;
+$table-periodic-td: 58px;
+$electron-size: 3px;
+$shell-k: $table-periodic-td - 37;
+$shell-l: $table-periodic-td - 31;
+$shell-m: $table-periodic-td - 25;
+$shell-n: $table-periodic-td - 19;
+$shell-o: $table-periodic-td - 13;
+$shell-p: $table-periodic-td - 7;
+$shell-q: $table-periodic-td - 1;
 
 $innercell-corner: $table-corners - $table-framewidth;
 
@@ -71,6 +80,7 @@ $color-back-darken: darken($color-back, 8%);
 // フォントカラー
 $color-font: rgb(245, 211, 170);
 $color-font-shadow: rgb(199, 173, 141);
+$color-font-dark: rgb(143, 124, 100);
 // リンクカラー
 $color-link: rgb(240, 158, 51);
 // hover時のカラー
