@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
+  # get 'periodic_atoms/index'
+  # get 'periodic_atoms/show'
+  # get 'periodic_atoms/new'
+  # get 'periodic_atoms/edit'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
   root to: 'glaze_fav#top'
   get 'glaze_fav/about'
-  get '/periodic_table', to: 'glaze_fav#periodic_table'
+  # get '/periodic_table', to: 'glaze_fav#periodic_table'
+  resources :periodic_atoms
 
   namespace :admin do
     resources :users
@@ -17,14 +22,22 @@ Rails.application.routes.draw do
   # get 'molnum/index', to: 'materials#molnum_index'
 end
 
-#        Prefix   Verb   URI Pattern                      Controller#Action
-#           login GET    /login(.:format)                 sessions#new
-#                 POST   /login(.:format)                 sessions#create
-#          logout DELETE /logout(.:format)                sessions#destroy
+#        Prefix       Verb   URI Pattern                      Controller#Action
+#           login     GET    /login(.:format)                 sessions#new
+#                     POST   /login(.:format)                 sessions#create
+#          logout     DELETE /logout(.:format)                sessions#destroy
 
-#            root GET    /glaze_fav/top(.:format)         glaze_fav#top
-# glaze_fav_about GET    /glaze_fav/about(.:format)       glaze_fav#about
-# periodic_table  GET    /periodic_table(.:format)        glaze_fav#periodic_table
+#            root     GET    /glaze_fav/top(.:format)         glaze_fav#top
+# glaze_fav_about     GET    /glaze_fav/about(.:format)       glaze_fav#about
+
+# periodic_atoms      GET    /periodic_atoms(.:format)           periodic_atoms#index
+#                     POST   /periodic_atoms(.:format)           periodic_atoms#create
+# new_periodic_atom   GET    /periodic_atoms/new(.:format)       periodic_atoms#new
+# edit_periodic_atom  GET    /periodic_atoms/:id/edit(.:format)  periodic_atoms#edit
+# periodic_atom       GET    /periodic_atoms/:id(.:format)       periodic_atoms#show
+#                     PATCH  /periodic_atoms/:id(.:format)       periodic_atoms#update
+#                     PUT    /periodic_atoms/:id(.:format)       periodic_atoms#update
+#                     DELETE /periodic_atoms/:id(.:format)       periodic_atoms#destroy
 
 #     admin_users GET    /admin/users(.:format)           admin/users#index
 #                 POST   /admin/users(.:format)           admin/users#create
