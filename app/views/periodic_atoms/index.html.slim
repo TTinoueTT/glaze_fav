@@ -1,0 +1,190 @@
+/ ================================================
+/ /periodic_table の画面  periodic_table
+/ 周期表
+/ ================================================
+
+/ p 周期表について
+
+nav.header__nav
+  ul.__ul
+    - if current_user
+      li.__li = link_to '原子の追加', new_periodic_atom_path, class: 'btn__bump'
+      / li.__li = link_to '原子の編集', edit_periodic_atom_path(periodic_atom_url), class: 'btn__bump'
+      / li.__li = link_to '周期表', periodic_atoms_path, class: 'btn__bump'
+
+table.__periodic_table
+  caption 周期表
+  colgroup._periodic_header
+
+  thead.__periodic_thead
+    tr
+      th Per\Grp
+      th.__peridoc_group_num
+        |1
+        br
+        | アルカリ金属
+      th.__peridoc_group_num
+        |2
+        br
+        |卑金属/アルカリ土類
+      th.__peridoc_group_num
+        |3
+        br
+        |希土類
+      th.__peridoc_group_num
+        |4
+        br
+        |チタン族
+      th.__peridoc_group_num
+        |5
+        br
+        |バナジウム族
+      th.__peridoc_group_num
+        |6
+        br
+        |クロム族
+      th.__peridoc_group_num
+        |7
+        br
+        |マンガン族
+      th.__peridoc_group_num 8
+      th.__peridoc_group_num 9
+      th.__peridoc_group_num 10
+      th.__peridoc_group_num 11
+      th.__peridoc_group_num 12
+      th.__peridoc_group_num 13
+      th.__peridoc_group_num 14
+      th.__peridoc_group_num 15
+      th.__peridoc_group_num 16
+      th.__peridoc_group_num 17
+      th.__peridoc_group_num
+        |18
+        br
+        |貴ガス
+  tbody
+    tr
+      th 1
+      td.__periodic_td
+        .atomic_nucleus H
+        .elect_shell_k
+        .elect_config
+      td.__periodic_td colspan=16
+      td.__periodic_td
+        .atomic_nucleus He
+        .elect_shell_k
+        .elect_config
+    tr
+      th 2
+      td.__periodic_td
+        .atomic_nucleus Li
+        .elect_shell_k
+        .elect_shell_l
+        .elect_config
+      td.__periodic_td
+        .atomic_nucleus Be
+        .elect_shell
+        .elect_config
+      td.__periodic_td colspan=10
+      td.__periodic_td
+        .atomic_nucleus B
+        .elect_shell
+        .elect_config
+      td.__periodic_td
+        .atomic_nucleus C
+        .elect_shell
+        .elect_config
+      td.__periodic_td
+        .atomic_nucleus N
+        .elect_shell
+        .elect_config
+      td.__periodic_td
+        .atomic_nucleus O
+        .elect_shell
+        .elect_config
+      td.__periodic_td
+        .atomic_nucleus F
+        .elect_shell
+        .elect_config
+      td.__periodic_td
+        .atomic_nucleus Ne
+        .elect_shell
+        .elect_config
+    tr
+      th 3
+      td.__periodic_td
+        .atomic_nucleus Na
+        .elect_shell_k
+        .elect_shell_l
+        .elect_shell_m 
+        .elect_config
+      td.__periodic_td
+        .atomic_nucleus Mg
+        .elect_shell
+        .elect_config
+      td.__periodic_td colspan=10
+      td.__periodic_td
+        .atomic_nucleus Al
+        .elect_shell
+        .elect_config
+      td.__periodic_td
+        .atomic_nucleus Si
+        .elect_shell
+        .elect_config
+      td.__periodic_td
+        .atomic_nucleus P
+        .elect_shell
+        .elect_config
+      td.__periodic_td
+        .atomic_nucleus S
+        .elect_shell
+        .elect_config
+      td.__periodic_td
+        .atomic_nucleus Cl
+        .elect_shell
+        .elect_config
+      td.__periodic_td
+        .atomic_nucleus Ar
+        .elect_shell
+        .elect_config
+    tr
+      th 4
+      td.__periodic_td
+        .atomic_nucleus K
+        .elect_shell_k
+        .elect_shell_l
+        .elect_shell_m
+        .elect_shell_n
+        .elect_config
+    tr
+      th 5
+      td.__periodic_td
+        .atomic_nucleus Rb
+        .elect_shell_k
+        .elect_shell_l
+        .elect_shell_m
+        .elect_shell_n
+        .elect_shell_o
+        .elect_config
+    tr
+      th 6
+      td.__periodic_td
+        .atomic_nucleus Cs
+        .elect_shell_k
+        .elect_shell_l
+        .elect_shell_m
+        .elect_shell_n
+        .elect_shell_o
+        .elect_shell_p
+        .elect_config
+    tr
+      th 7
+      td.__periodic_td
+        .atomic_nucleus Fr
+        .elect_shell_k
+        .elect_shell_l
+        .elect_shell_m
+        .elect_shell_n
+        .elect_shell_o
+        .elect_shell_p
+        .elect_shell_q
+        .elect_config
