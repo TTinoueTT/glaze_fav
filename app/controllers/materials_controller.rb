@@ -4,6 +4,7 @@ class MaterialsController < ApplicationController
   before_action :categories, only: %i[new edit]
 
   def index
+    # @js_file = 'materials/index'
     @page_title = '原料分析一覧'
     # @materials = Material.all
     # @materials = current_user.materials
