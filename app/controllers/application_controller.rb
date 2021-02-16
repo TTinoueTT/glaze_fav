@@ -11,4 +11,8 @@ class ApplicationController < ActionController::Base
   def login_required # ログインしていない場合
     redirect_to login_path unless current_user
   end
+
+  def require_admin # 後ほどHTTPステータスコード404を返すようにする
+    redirect_to root_path unless current_user.admin?
+  end
 end

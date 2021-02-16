@@ -68,4 +68,5 @@ gem 'rubocop-rspec', '~> 2.1'
 gem 'slim_lint', '~> 0.20.2'
 gem 'slim-rails'
 
+gem 'rein', '~> 5.1'
 gem 'rinku', '~> 2.0', '>= 2.0.6'

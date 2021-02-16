@@ -7,7 +7,7 @@
 
 nav.header__nav
   ul.__ul
-    - if current_user
+    - if current_user.admin?
       li.__li = link_to '原子の追加', new_periodic_atom_path, class: 'btn__bump'
       / li.__li = link_to '原子の編集', edit_periodic_atom_path(periodic_atom_url), class: 'btn__bump'
       / li.__li = link_to '周期表', periodic_atoms_path, class: 'btn__bump'
@@ -19,45 +19,45 @@ table.__periodic_table
   thead.__periodic_thead
     tr
       th Per\Grp
-      th.__peridoc_group_num
+      th.__periodic_group_num
         |1
         br
         | アルカリ金属
-      th.__peridoc_group_num
+      th.__periodic_group_num
         |2
         br
         |卑金属/アルカリ土類
-      th.__peridoc_group_num
+      th.__periodic_group_num
         |3
         br
         |希土類
-      th.__peridoc_group_num
+      th.__periodic_group_num
         |4
         br
         |チタン族
-      th.__peridoc_group_num
+      th.__periodic_group_num
         |5
         br
         |バナジウム族
-      th.__peridoc_group_num
+      th.__periodic_group_num
         |6
         br
         |クロム族
-      th.__peridoc_group_num
+      th.__periodic_group_num
         |7
         br
         |マンガン族
-      th.__peridoc_group_num 8
-      th.__peridoc_group_num 9
-      th.__peridoc_group_num 10
-      th.__peridoc_group_num 11
-      th.__peridoc_group_num 12
-      th.__peridoc_group_num 13
-      th.__peridoc_group_num 14
-      th.__peridoc_group_num 15
-      th.__peridoc_group_num 16
-      th.__peridoc_group_num 17
-      th.__peridoc_group_num
+      th.__periodic_group_num 8
+      th.__periodic_group_num 9
+      th.__periodic_group_num 10
+      th.__periodic_group_num 11
+      th.__periodic_group_num 12
+      th.__periodic_group_num 13
+      th.__periodic_group_num 14
+      th.__periodic_group_num 15
+      th.__periodic_group_num 16
+      th.__periodic_group_num 17
+      th.__periodic_group_num
         |18
         br
         |貴ガス
@@ -65,6 +65,9 @@ table.__periodic_table
     tr
       th 1
       td.__periodic_td
+        / - binding.pry
+        = link_to 'H', periodic_atom_path(@periodic_atoms.find_by(atomic_num: 1).id),
+          class: 'atomic_nucleus'
         .atomic_nucleus H
         .elect_shell_k
         .elect_config
@@ -115,7 +118,7 @@ table.__periodic_table
         .atomic_nucleus Na
         .elect_shell_k
         .elect_shell_l
-        .elect_shell_m 
+        .elect_shell_m
         .elect_config
       td.__periodic_td
         .atomic_nucleus Mg

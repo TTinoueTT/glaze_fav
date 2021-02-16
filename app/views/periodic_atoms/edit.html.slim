@@ -1,2 +1,7 @@
-h1 PeriodicAtoms#edit
-p Find me in app/views/periodic_atoms/edit.html.slim
+/ ================================================
+/ /peiodic/edit
+/ 元素の編集画面
+/ ================================================
+
+= render partial: 'form',
+  locals: { periodic_atom: @periodic_atom }

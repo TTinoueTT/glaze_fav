@@ -1,2 +1,54 @@
-h1 PeriodicAtoms#show
-p Find me in app/views/periodic_atoms/show.html.slim
+/ ================================================
+/ / (periodic/show の画面・元素詳細画面)
+/ ================================================
+/ = link_to '一覧', materials_path, class: 'btn__distinct'
+
+h3.show__materialname = "#{@periodic_atom.name}"
+
+table.main__table
+  tbody.__tbody
+    tr.__tr
+      th.__th = PeriodicAtom.human_attribute_name(:id)
+      td._td = @periodic_atom.id
+    tr.__tr
+      th.__th = PeriodicAtom.human_attribute_name(:name)
+      td._td = @periodic_atom.name
+    tr.__tr
+      th.__th = PeriodicAtom.human_attribute_name(:symbol)
+      td._td = @periodic_atom.symbol
+    tr.__tr
+      th.__th = PeriodicAtom.human_attribute_name(:atomic_num)
+      td._td = @periodic_atom.atomic_num
+    tr.__tr
+      th.__th = PeriodicAtom.human_attribute_name(:group)
+      td._td = @periodic_atom.group
+    tr.__tr
+      th.__th = PeriodicAtom.human_attribute_name(:period)
+      td._td = @periodic_atom.period
+    tr.__tr
+      th.__th = PeriodicAtom.human_attribute_name(:weight)
+      td._td = @periodic_atom.weight
+    tr.__tr
+      th.__th = PeriodicAtom.human_attribute_name(:classification)
+      td._td = @periodic_atom.classification
+    tr.__tr
+      th.__th = PeriodicAtom.human_attribute_name(:electron_shells_id)
+      td._td = @periodic_atom.electron_shells_id
+      / td._td = ElectronShell.find(@periodic_atom.electron_shells_id)
+      / td._td = ElectronShell.human_attribute_name(:l_shell)
+    tr.__tr
+      th.__th = PeriodicAtom.human_attribute_name(:melting_point)
+      td._td = @periodic_atom.melting_point
+    tr.__tr
+      th.__th = PeriodicAtom.human_attribute_name(:boiling_point)
+      td._td = @periodic_atom.boiling_point
+    tr.__tr
+      th.__th = PeriodicAtom.human_attribute_name(:created_at)
+      td._td = @periodic_atom.created_at
+    tr.__tr
+      th.__th = PeriodicAtom.human_attribute_name(:updated_at)
+      td._td = @periodic_atom.updated_at
+= link_to '編集', edit_periodic_atom_path, class: 'btn__bump'
+= link_to '削除', @periodic_atom, method: :delete,
+  data: { confirm: "ユーザー「#{@periodic_atom.name}」を削除します。よろしいですか?" },
+  class: 'btn__bump'
