@@ -56,7 +56,7 @@ class PeriodicAtomsController < ApplicationController
   def atom_params
     params.require(:periodic_atom)
           .permit(:id, :name, :symbol,
-                  :atomic_num, :group, :period,
-                  :weight, :electron_shells_id)
+                  :atomic_num, :period,
+                  :weight, :atomic_group_id)
   end
 end
