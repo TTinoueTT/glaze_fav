@@ -53,7 +53,8 @@ class Admin::UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :admin, :password, :password_confirmation)
   end
 
-  def require_admin # 後ほどHTTPステータスコード404を返すようにする
-    redirect_to root_path unless current_user.admin?
-  end
+  # application_controllerに移行
+  # def require_admin # 後ほどHTTPステータスコード404を返すようにする
+  #   redirect_to root_path unless current_user.admin?
+  # end
 end
