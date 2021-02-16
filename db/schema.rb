@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_16_083622) do
+ActiveRecord::Schema.define(version: 2021_02_16_130020) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "atomic_groups", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "electron_shells", force: :cascade do |t|
     t.integer "k_shell", default: 0
@@ -56,7 +62,6 @@ ActiveRecord::Schema.define(version: 2021_02_16_083622) do
     t.string "name"
     t.string "symbol"
     t.integer "atomic_num"
-    t.integer "group"
     t.integer "period"
     t.decimal "weight"
     t.datetime "created_at", precision: 6, null: false
@@ -64,6 +69,8 @@ ActiveRecord::Schema.define(version: 2021_02_16_083622) do
     t.integer "classification"
     t.decimal "melting_point", precision: 4, scale: 2, default: "0.0"
     t.decimal "boiling_point", precision: 4, scale: 2, default: "0.0"
+    t.integer "atomic_group_id"
+    t.index ["atomic_group_id"], name: "index_periodic_atoms_on_atomic_group_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -77,4 +84,5 @@ ActiveRecord::Schema.define(version: 2021_02_16_083622) do
   end
 
   add_foreign_key "electron_shells", "periodic_atoms"
+  add_foreign_key "periodic_atoms", "atomic_groups"
 end
