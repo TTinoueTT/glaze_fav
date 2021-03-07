@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 window.onload = function() {
   console.log('hello');
   // const trs = document.querySelectorAll('.__tr');
@@ -15,7 +15,7 @@ window.onload = function() {
   inputs.forEach((input) => {
     input.addEventListener('input', () => {
       // console.log('input');
-      sum = 0;
+      sum = 0; //合計値の初期化
       // sum += Number(input.value);
       inputs.forEach(adder);
       inputSum.textContent = Math.round(sum * 100) / 100; //少数点第三位で切り上げ
