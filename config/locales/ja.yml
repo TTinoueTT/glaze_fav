@@ -43,7 +43,7 @@ ja:
         name: 原子名
         symbol: 元素記号
         atomic_num: 原子番号
-        group: 族
+        atomic_group_id: 族
         period: 周期
         weight: 原子量
         created_at: 登録日時

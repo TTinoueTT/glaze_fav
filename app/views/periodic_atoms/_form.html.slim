@@ -1,7 +1,8 @@
 / ================================================
 / / (periodic_atoms/newまたはeditのフォーム画面)
 / ================================================
-
+= javascript_pack_tag 'periodic_atoms/form'
+#groups data-group="#{@groups.as_json(only: [:id])}"
 - if periodic_atom.errors.present?
   ul#error_explanation.bg-danger.text-white
     - periodic_atom.errors.full_messages.each do |message|
@@ -31,8 +32,8 @@ ul.__ul
     = f.number_field :atomic_num,
       class: 'form__control_tex'
 
-    = f.label :group, class: 'form__label'
-    = f.number_field :group,
+    = f.label :atomic_group_id, class: 'form__label'
+    = f.number_field :atomic_group_id,
       class: 'form__control_tex'
 
     = f.label :period, class: 'form__label'
@@ -44,8 +45,8 @@ ul.__ul
       step: '0.00001',
       class: 'form__control_tex'
 
-    = f.label :electron_shells_id, class: 'form__label'
-    = f.number_field :electron_shells_id,
-      class: 'form__control_tex'
+    / = f.label :electron_shells_id, class: 'form__label'
+    / = f.number_field :electron_shells_id,
+    /   class: 'form__control_tex'
   / 登録ボタン
   = f.submit nil, class: 'btn__submit'

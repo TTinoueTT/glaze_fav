@@ -4,7 +4,16 @@ class PeriodicAtomsController < ApplicationController
 
   def index
     @page_title = '周期表'
-    @periodic_atoms = PeriodicAtom.all
+    @atoms = PeriodicAtom.all
+    @atoms_p1 = @atoms.where(period: 1) # 第1周期のレコード群
+    @atoms_p2 = @atoms.where(period: 2) # 第2周期のレコード群
+    @atoms_p3 = @atoms.where(period: 3) # 第3周期のレコード群
+    @atoms_p4 = @atoms.where(period: 4) # 第4周期のレコード群
+    @atoms_p5 = @atoms.where(period: 5) # 第5周期のレコード群
+    @atoms_p6 = @atoms.where(period: 6) # 第6周期のレコード群
+    @atoms_p7 = @atoms.where(period: 7) # 第7周期のレコード群
+    @groups = AtomicGroup.all
+    # binding.pry
   end
 
   def show
@@ -15,6 +24,8 @@ class PeriodicAtomsController < ApplicationController
   def new
     @page_title = '原子の登録'
     @periodic_atom = PeriodicAtom.new
+    @groups = AtomicGroup.all
+    # binding.pry
   end
 
   def create
@@ -33,6 +44,7 @@ class PeriodicAtomsController < ApplicationController
   def edit
     @page_title = '原子の編集'
     @periodic_atom = PeriodicAtom.find(params[:id])
+    @groups = AtomicGroup.all
   end
 
   def update
@@ -57,6 +69,7 @@ class PeriodicAtomsController < ApplicationController
     params.require(:periodic_atom)
           .permit(:id, :name, :symbol,
                   :atomic_num, :period,
-                  :weight, :atomic_group_id)
+                  :weight, :melting_point, :boiling_point,
+                  :atomic_group_id)
   end
 end

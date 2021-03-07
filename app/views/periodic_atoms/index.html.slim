@@ -2,7 +2,7 @@
 / /periodic_table の画面  periodic_table
 / 周期表
 / ================================================
-
+= javascript_pack_tag 'periodic_atoms/index'
 / p 周期表について
 
 nav.header__nav
@@ -18,176 +18,117 @@ table.__periodic_table
 
   thead.__periodic_thead
     tr
-      th Per\Grp
-      th.__periodic_group_num
-        |1
-        br
-        | アルカリ金属
-      th.__periodic_group_num
-        |2
-        br
-        |卑金属/アルカリ土類
-      th.__periodic_group_num
-        |3
-        br
-        |希土類
-      th.__periodic_group_num
-        |4
-        br
-        |チタン族
-      th.__periodic_group_num
-        |5
-        br
-        |バナジウム族
-      th.__periodic_group_num
-        |6
-        br
-        |クロム族
-      th.__periodic_group_num
-        |7
-        br
-        |マンガン族
-      th.__periodic_group_num 8
-      th.__periodic_group_num 9
-      th.__periodic_group_num 10
-      th.__periodic_group_num 11
-      th.__periodic_group_num 12
-      th.__periodic_group_num 13
-      th.__periodic_group_num 14
-      th.__periodic_group_num 15
-      th.__periodic_group_num 16
-      th.__periodic_group_num 17
-      th.__periodic_group_num
-        |18
-        br
-        |貴ガス
+      / th Per\Grp
+      th
+      - @groups.each do |group|
+        th.__periodic_group_num
+          = group.id
+          br
+          = group.name
   tbody
     tr
-      th 1
-      td.__periodic_td
-        / - binding.pry
-        = link_to 'H', periodic_atom_path(@periodic_atoms.find_by(atomic_num: 1).id),
-          class: 'atomic_nucleus'
-        .atomic_nucleus H
-        .elect_shell_k
-        .elect_config
-      td.__periodic_td colspan=16
-      td.__periodic_td
-        .atomic_nucleus He
-        .elect_shell_k
-        .elect_config
+      th.__periodic_row_num 1
+      - @atoms_p1.each do |atom|
+        td.__periodic_td
+          = link_to atom.symbol.to_s, periodic_atom_path(atom.id),
+            class: 'atomic_symbol'
+          .elect_shell_k
+          .elect_config
+        - if atom.atomic_group_id == 1
+          td.__periodic_spacecell colspan="#{18 - @atoms_p1.count}"
     tr
-      th 2
-      td.__periodic_td
-        .atomic_nucleus Li
-        .elect_shell_k
-        .elect_shell_l
-        .elect_config
-      td.__periodic_td
-        .atomic_nucleus Be
-        .elect_shell
-        .elect_config
-      td.__periodic_td colspan=10
-      td.__periodic_td
-        .atomic_nucleus B
-        .elect_shell
-        .elect_config
-      td.__periodic_td
-        .atomic_nucleus C
-        .elect_shell
-        .elect_config
-      td.__periodic_td
-        .atomic_nucleus N
-        .elect_shell
-        .elect_config
-      td.__periodic_td
-        .atomic_nucleus O
-        .elect_shell
-        .elect_config
-      td.__periodic_td
-        .atomic_nucleus F
-        .elect_shell
-        .elect_config
-      td.__periodic_td
-        .atomic_nucleus Ne
-        .elect_shell
-        .elect_config
+      th.__periodic_row_num 2
+      - @atoms_p2.each do |atom|
+        td.__periodic_td
+          = link_to atom.symbol.to_s, periodic_atom_path(atom.id),
+            class: 'atomic_symbol'
+          .elect_shell_k
+          .elect_shell_l
+          .elect_config
+        - if atom.atomic_group_id == 2
+          td.__periodic_spacecell colspan="#{18 - @atoms_p2.count}"
     tr
-      th 3
-      td.__periodic_td
-        .atomic_nucleus Na
-        .elect_shell_k
-        .elect_shell_l
-        .elect_shell_m
-        .elect_config
-      td.__periodic_td
-        .atomic_nucleus Mg
-        .elect_shell
-        .elect_config
-      td.__periodic_td colspan=10
-      td.__periodic_td
-        .atomic_nucleus Al
-        .elect_shell
-        .elect_config
-      td.__periodic_td
-        .atomic_nucleus Si
-        .elect_shell
-        .elect_config
-      td.__periodic_td
-        .atomic_nucleus P
-        .elect_shell
-        .elect_config
-      td.__periodic_td
-        .atomic_nucleus S
-        .elect_shell
-        .elect_config
-      td.__periodic_td
-        .atomic_nucleus Cl
-        .elect_shell
-        .elect_config
-      td.__periodic_td
-        .atomic_nucleus Ar
-        .elect_shell
-        .elect_config
+      th.__periodic_row_num 3
+      - @atoms_p3.each do |atom|
+        td.__periodic_td
+          = link_to atom.symbol.to_s, periodic_atom_path(atom.id),
+            class: 'atomic_symbol'
+          .elect_shell_k
+          .elect_shell_l
+          .elect_shell_m
+          .elect_config
+        - if atom.atomic_group_id == 2
+          td.__periodic_spacecell colspan="#{18 - @atoms_p3.count}"
     tr
-      th 4
-      td.__periodic_td
-        .atomic_nucleus K
-        .elect_shell_k
-        .elect_shell_l
-        .elect_shell_m
-        .elect_shell_n
-        .elect_config
+      th.__periodic_row_num 4
+      - @atoms_p4.each do |atom|
+        td.__periodic_td
+          = link_to atom.symbol.to_s, periodic_atom_path(atom.id),
+            class: 'atomic_symbol'
+          .elect_shell_k
+          .elect_shell_l
+          .elect_shell_m
+          .elect_shell_n
+          .elect_config
     tr
-      th 5
-      td.__periodic_td
-        .atomic_nucleus Rb
-        .elect_shell_k
-        .elect_shell_l
-        .elect_shell_m
-        .elect_shell_n
-        .elect_shell_o
-        .elect_config
+      th.__periodic_row_num 5
+      - @atoms_p5.each do |atom|
+        td.__periodic_td
+          = link_to atom.symbol.to_s, periodic_atom_path(atom.id),
+            class: 'atomic_symbol'
+          .elect_shell_k
+          .elect_shell_l
+          .elect_shell_m
+          .elect_shell_n
+          .elect_shell_o
+          .elect_config
     tr
-      th 6
-      td.__periodic_td
-        .atomic_nucleus Cs
-        .elect_shell_k
-        .elect_shell_l
-        .elect_shell_m
-        .elect_shell_n
-        .elect_shell_o
-        .elect_shell_p
-        .elect_config
+      th.__periodic_row_num 6
+      - atoms_3ex_p6 = @atoms_p6.where.not(atomic_group_id: 3)
+      - atoms_3ex_p6.each do |atom|
+        td.__periodic_td
+          = link_to atom.symbol.to_s, periodic_atom_path(atom.id),
+            class: 'atomic_symbol'
+          .elect_shell_k
+          .elect_shell_l
+          .elect_shell_m
+          .elect_shell_n
+          .elect_shell_o
+          .elect_shell_p
+          .elect_config
+        - if atom.atomic_group_id == 2
+          td.__periodic_td
+            .atomic_nucleus
+            .atomic_symbol Lant
     tr
-      th 7
-      td.__periodic_td
-        .atomic_nucleus Fr
-        .elect_shell_k
-        .elect_shell_l
-        .elect_shell_m
-        .elect_shell_n
-        .elect_shell_o
-        .elect_shell_p
-        .elect_shell_q
-        .elect_config
+      th.__periodic_row_num 7
+      - atoms_3ex_p7 = @atoms_p7.where.not(atomic_group_id: 3)
+      - atoms_3ex_p7.each do |atom|
+        td.__periodic_td
+          = link_to atom.symbol.to_s, periodic_atom_path(atom.id),
+            class: 'atomic_symbol'
+          .elect_shell_k
+          .elect_shell_l
+          .elect_shell_m
+          .elect_shell_n
+          .elect_shell_o
+          .elect_shell_p
+          .elect_shell_q
+          .elect_config
+        - if atom.atomic_group_id == 2
+          td.__periodic_td
+            .atomic_nucleus
+            .atomic_symbol Act
+
+    / tr
+    /   th 7
+    /   td.__periodic_td
+    /     .atomic_nucleus Fr
+    /     .elect_shell_k
+    /     .elect_shell_l
+    /     .elect_shell_m
+    /     .elect_shell_n
+    /     .elect_shell_o
+    /     .elect_shell_p
+    /     .elect_shell_q
+    /     .elect_config
