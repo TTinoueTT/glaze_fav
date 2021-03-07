@@ -20,20 +20,20 @@ table.main__table
       th.__th = PeriodicAtom.human_attribute_name(:atomic_num)
       td._td = @periodic_atom.atomic_num
     tr.__tr
-      th.__th = PeriodicAtom.human_attribute_name(:group)
-      td._td = @periodic_atom.group
+      th.__th = PeriodicAtom.human_attribute_name(:atomic_group_id)
+      td._td = "#{@periodic_atom.atomic_group.id}: #{@periodic_atom.atomic_group.name}"
     tr.__tr
       th.__th = PeriodicAtom.human_attribute_name(:period)
       td._td = @periodic_atom.period
     tr.__tr
       th.__th = PeriodicAtom.human_attribute_name(:weight)
       td._td = @periodic_atom.weight
-    tr.__tr
-      th.__th = PeriodicAtom.human_attribute_name(:classification)
-      td._td = @periodic_atom.classification
-    tr.__tr
-      th.__th = PeriodicAtom.human_attribute_name(:electron_shells_id)
-      td._td = @periodic_atom.electron_shells_id
+    / tr.__tr
+    /   th.__th = PeriodicAtom.human_attribute_name(:classification)
+    /   td._td = @periodic_atom.classification
+    / tr.__tr
+      / th.__th = PeriodicAtom.human_attribute_name(:electron_shells_id)
+      / td._td = "k = #{@periodic_atom.electron_shell.k_shell}, l = #{@periodic_atom.electron_shell.l_shell}"
       / td._td = ElectronShell.find(@periodic_atom.electron_shells_id)
       / td._td = ElectronShell.human_attribute_name(:l_shell)
     tr.__tr
