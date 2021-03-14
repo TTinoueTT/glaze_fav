@@ -18,10 +18,12 @@ html
         ul.__ul
           - if current_user
             li.__li = link_to '原料分析表', materials_path, class: 'btn__bump'
+            li.__li = link_to '釉薬一覧', glazes_path, class: 'btn__bump'
             li.__li = link_to 'about', glaze_fav_about_path, class: 'btn__bump'
-            li.__li = link_to '周期表', periodic_atoms_path, class: 'btn__bump'
+            li.__li = link_to I18n.t('word.btn.periodic_table'), periodic_atoms_path, class: 'btn__bump'
+            / li.__li = link_to '周期表', periodic_atoms_path, class: 'btn__bump'
             - if current_user.admin?
-              li.__li = link_to 'ユーザー一覧', admin_users_path, class: 'btn__bump'
+              li.__li = link_to I18n.t('word.btn.users'), admin_users_path, class: 'btn__bump'
             li.__li = link_to 'ログアウト', logout_path, method: :delete, class: 'btn__bump'
           - else
             li.__li = link_to 'ログイン', login_path, class: 'btn__bump'
