@@ -6,9 +6,8 @@ class MaterialsController < ApplicationController
   def index
     # @js_file = 'materials/index'
     @page_title = '原料分析一覧'
-    # @materials = Material.all
-    # @materials = current_user.materials
-    @materials = current_user.materials.order(:category).order(:name)
+    # current_userが登録したmaterialのすべてのデータをcategory_id順にして名前順
+    @materials = current_user.materials.order(:category_id).order(:name)
     # @length = current_user.materials.where(category: 'アルカリ').count
     # binding.pry
   end
@@ -36,6 +35,7 @@ class MaterialsController < ApplicationController
   def edit
     @page_title = '原料データの編集'
     @material = current_user.materials.find(params[:id])
+    # - binding.pry
   end
 
   def update
@@ -57,10 +57,11 @@ class MaterialsController < ApplicationController
 
   def material_params
     params.require(:material)
-          .permit(:name, :category, :description,
+          .permit(:name, :description,
                   :sio2, :tio2, :al2o3, :fe2o3,
                   :cao, :mgo, :k2o, :na2o,
-                  :mno, :zno, :bao, :p2o5, :iglos)
+                  :mno, :zno, :bao, :p2o5, :iglos,
+                  :category_id)
   end
 
   def molar_masses
@@ -74,11 +75,15 @@ class MaterialsController < ApplicationController
   end
 
   def categories
-    @categories = {
-      'アルカリ(長石,酸化リチウム)': 'アルカリ',
-      'アルカリ土類(CaO,MgO,SrO,BaO,ZnO,PbO)': 'アルカリ土類',
-      'アルミナ(粘土,カオリン)': 'アルミナ',
-      'シリカ(珪石,藁灰,蝋石)': 'シリカ'
-    }
+    # @categories = Category.all
+    category_names = Category.pluck(:id, :name)
+    @categories = category_names.map { |name| t("word.category.name.#{name}") }
+    # binding.pry
+    # @categories = {
+    #   'アルカリ(長石,酸化リチウム)': 'アルカリ',
+    #   'アルカリ土類(CaO,MgO,SrO,BaO,ZnO,PbO)': 'アルカリ土類',
+    #   'アルミナ(粘土,カオリン)': 'アルミナ',
+    #   'シリカ(珪石,藁灰,蝋石)': 'シリカ'
+    # }
   end
 end
