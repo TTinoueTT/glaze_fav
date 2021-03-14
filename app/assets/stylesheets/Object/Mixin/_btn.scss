@@ -60,3 +60,16 @@
     @include active-text(s);
   }
 }
+
+// 周期表の原子の要素のbtn
+%atom-btn {
+  @extend %btn-action;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-51%, -51%);
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
