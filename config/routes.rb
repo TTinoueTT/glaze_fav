@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  # get 'periodic_atoms/index'
-  # get 'periodic_atoms/show'
-  # get 'periodic_atoms/new'
-  # get 'periodic_atoms/edit'
+  # get 'glazes/index'
+  # get 'glazes/show'
+  # get 'glazes/new'
+  # get 'glazes/edit'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     # resources :molnum, only: [:index]
   end
   # get 'molnum/index', to: 'materials#molnum_index'
+
+  resources :glazes
 end
 
 #        Prefix       Verb   URI Pattern                      Controller#Action
@@ -29,6 +31,15 @@ end
 
 #            root     GET    /glaze_fav/top(.:format)         glaze_fav#top
 # glaze_fav_about     GET    /glaze_fav/about(.:format)       glaze_fav#about
+
+# glazes              GET    /glazes(.:format)                glazes#index
+#                     POST   /glazes(.:format)                glazes#create
+# new_glaze           GET    /glazes/new(.:format)             glazes#new
+# edit_glaze          GET    /glazes/:id/edit(.:format)        glazes#edit
+# glaze               GET    /glazes/:id(.:format)             glazes#show
+#                     PATCH  /glazes/:id(.:format)             glazes#update
+#                     PUT    /glazes/:id(.:format)             glazes#update
+#                     DELETE /glazes/:id(.:format)             glazes#destroy
 
 # periodic_atoms      GET    /periodic_atoms(.:format)           periodic_atoms#index
 #                     POST   /periodic_atoms(.:format)           periodic_atoms#create
