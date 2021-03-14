@@ -8,20 +8,29 @@
     - material.errors.full_messages.each do |message|
       li = message
 
+/ p @material.name
+
 = form_with model: material, local: true do |f|
   / html: { id: 'material_form',
   /   oninput: "sum.value = Number(sio2_num.value) + Number(tio2_num.value);" }
-
   / カテゴリの入力欄
   .form__group
-    = f.label :category, class: 'form__label'
-    = f.select :category,
-      options_for_select(categories,
-      material.category.to_s),
+    = f.label :category_id, class: 'form__label'
+    / - binding.pry
+    = f.collection_select :category_id, Category.order(id: :asc), :id, :name,
+      { prompt: true }, { class: 'form__control_tex' }
+
+    / = f.collection_select :category_id, categories, :id, :name,
+    /   { prompt: true }, { class: 'form__control_tex' }
+
+    / = f.select :category_id,
+      / options_for_select(categories),
+      # t("word.category.name.#{material.category}")),
+      # categories[material.category_id]),
       # categories.key(material.category).to_s),
-      { include_blank: categories.key(material.category).to_s },
+      # { include_blank: categories.key(material.category).to_s },
       # {},
-      { class: 'form__control_tex', id: 'material_category' }
+      / { class: 'form__control_tex', id: 'material_category' }
   / 原料名の入力欄
   .form__group
     = f.label :name, class: 'form__label'
