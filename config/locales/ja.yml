@@ -1,5 +1,21 @@
 ---
 ja:
+  word:
+    btn:
+      periodic_table: 周期表
+      users: ユーザー一覧
+    category:
+      name:
+        fundamental(KNa2O): 基本(KNa2O)
+        h_temp_flux(CaMgO): 高温溶剤(CaMgO)
+        m_temp_flux(ZnBaSrLi): 中温溶剤(ZnBaSrLi)
+        l_temp_flux(Pb, flux): 低温溶剤(Pb,フラックス)
+        alumina(Al2O3): 粘土類(Al203)
+        silica(SiO2): 珪酸類(SiO2)
+        ferruginous(Fe): 含鉄原料(Fe)
+        other_metals(Mn,Co,Cu,etc...): 外割金属(Mn,Co,Cu,etc...)
+        emulsion(P,Ti,Sn,Zr): 乳濁・失透剤(P,Ti,Sn,Zr)
+
   activerecord:
     errors:
       messages:
@@ -9,10 +25,13 @@ ja:
           has_many: "%{record}が存在しているので削除できません"
     models:
       material:
+      category:
+        name:
+          fundamental: 基本原料
     attributes:
       material:
         id: ID
-        category: カテゴリ
+        category_id: カテゴリ
         name: 原料
         sio2: SiO2
         tio2: TiO2
@@ -31,6 +50,9 @@ ja:
         description: 説明
         created_at: 登録日時
         updated_at: 更新日時
+      category:
+        name:
+          fundamental: 基本原料1
       user:
         name: 名前
         email: メールアドレス
@@ -48,6 +70,7 @@ ja:
         weight: 原子量
         created_at: 登録日時
         updated_at: 更新日時
+
   date:
     abbr_day_names:
       - 日

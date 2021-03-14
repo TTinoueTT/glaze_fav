@@ -10,12 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_16_130020) do
+ActiveRecord::Schema.define(version: 2021_03_09_083656) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "atomic_groups", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -48,13 +54,14 @@ ActiveRecord::Schema.define(version: 2021_02_16_130020) do
     t.decimal "k2o", precision: 4, scale: 2, default: "0.0"
     t.decimal "na2o", precision: 4, scale: 2, default: "0.0"
     t.bigint "user_id", null: false
-    t.string "category"
     t.text "description"
     t.decimal "mno", precision: 4, scale: 2, default: "0.0"
     t.decimal "zno", precision: 4, scale: 2, default: "0.0"
     t.decimal "bao", precision: 4, scale: 2, default: "0.0"
     t.decimal "p2o5", precision: 4, scale: 2, default: "0.0"
     t.decimal "iglos", precision: 4, scale: 2, default: "0.0"
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_materials_on_category_id"
     t.index ["user_id"], name: "index_materials_on_user_id"
   end
 
@@ -84,5 +91,6 @@ ActiveRecord::Schema.define(version: 2021_02_16_130020) do
   end
 
   add_foreign_key "electron_shells", "periodic_atoms"
+  add_foreign_key "materials", "categories"
   add_foreign_key "periodic_atoms", "atomic_groups"
 end

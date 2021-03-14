@@ -3,7 +3,8 @@
 / ================================================
 = link_to '一覧', materials_path, class: 'btn__distinct'
 
-h3.show__materialname = "#{@material.name} / #{@material.category}"
+h3.show__materialname
+  = "#{@material.name} / #{t("word.category.name.#{@material.category.name}")}"
 
 table.main__table
   thead.__thead

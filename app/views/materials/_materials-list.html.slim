@@ -21,7 +21,7 @@ table.main__table
   thead.__thead
     tr.__tr
       / カテゴリカラム
-      th.__th_namecolumn = Material.human_attribute_name(:category)
+      th.__th_namecolumn = Material.human_attribute_name(:category_id)
       / 原料名カラム
       th.__th_namecolumn = Material.human_attribute_name(:name)
       / 分子量カラム
@@ -30,11 +30,20 @@ table.main__table
       / 編集•削除カラム
       th.__th_lastcolumn
   / ================================================================
+  / - fundamentals_num = @materials.where(category_id: 1).count
+  / - binding.pry
   tbody.__tbody#ratio-data
+    - category_switch = 0
     - @materials.each do |material|
       tr.__tr
         / カテゴリ名 ======================================
-        td.__td_namecell = material.category
+        / rowspanのための変数numを定義
+        - num = @materials.where(category_id: material.category.id).count
+        - if category_switch != material.category.id
+          / I18nのメソッドを利用、翻訳された値を出力
+          th.__td_namecell rowspan="#{num}"
+            = t("word.category.name.#{material.category.name}")
+          - category_switch = material.category.id
         / 原料名 ======================================
         td.__td_namecell
           = link_to material.name, material_path(material.id),
@@ -56,7 +65,13 @@ table.main__table
     - @materials.each do |material|
       tr.__tr
         / カテゴリ名 ======================================
-        td.__td_namecell = material.category
+        / rowspanのための変数numを定義
+        - num = @materials.where(category_id: material.category.id).count
+        - if category_switch != material.category.id
+          / I18nのメソッドを利用、翻訳された値を出力
+          th.__td_namecell rowspan="#{num}"
+            = t("word.category.name.#{material.category.name}")
+          - category_switch = material.category.id
         / 原料名 ======================================
         td.__td_namecell
           = link_to material.name, material_path(material.id),

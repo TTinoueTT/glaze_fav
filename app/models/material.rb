@@ -17,6 +17,7 @@ class Material < ApplicationRecord
   validates :bao, numericality: { less_than: 100, greater_than_or_equal_to: 0 }
   validates :p2o5, numericality: { less_than: 100, greater_than_or_equal_to: 0 }
   validates :iglos, numericality: { less_than: 100, greater_than_or_equal_to: 0 }
+  belongs_to :category
   belongs_to :user
 end
 

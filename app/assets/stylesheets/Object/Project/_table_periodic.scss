@@ -59,50 +59,18 @@
       padding-bottom: 50%;
     }
 
-    // .atomic_nucleus {
-    //   @extend %a-action;
-    //   text-align: center;
-    //   position: absolute;
-    //   top: 50%;
-    //   left: 50%;
-    //   transform: translate(-50%, -50%);
-    //   display: block;
-    //   width: 100%;
-    //   height: 100%;
-    //   border-radius: 50%;
-    //   // padding-top: 25%;
-    //   // padding-bottom: 25%;
-    //   // background: rgb(45, 60, 83);
-    //   // background: rgba(36, 88, 165, 0.705);
-
-    //   &:hover {
-    //     background-color: $color-back-darken;
-    //     // @include hover-text(ss);
-    //     @include radiation-text(ss, $color-hover);
-    //   }
-    // }
-
     .atomic_symbol {
-      // @extend %a-action;
-      text-align: center;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-51%, -51%);
-      color: $color-link;
-      display: block;
-      text-decoration: none;
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-
-      &:hover {
-        background-color: $color-back-darken;
-        // @include hover-text(ss);
-        @include radiation-text(ss, $color-hover);
-      }
+      @extend %atom-btn;
+      // 文字を中央に配置する仕様はjsで(fontSizeとlineHeightを動的に変更)
     }
+
+    .lanthan_header {
+      @include bump(sss);
+      background: rgb(240, 230, 140);
+    }
+
   }
+
 
   &_spacecell {
     padding: 0;
