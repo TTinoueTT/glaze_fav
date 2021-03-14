@@ -98,7 +98,6 @@ table.__periodic_table
           .elect_config
         - if atom.atomic_group_id == 2
           td.__periodic_td
-            .atomic_nucleus
             .atomic_symbol Lant
     tr
       th.__periodic_row_num 7
@@ -117,8 +116,23 @@ table.__periodic_table
           .elect_config
         - if atom.atomic_group_id == 2
           td.__periodic_td
-            .atomic_nucleus
             .atomic_symbol Act
+
+    tr
+      th.__periodic_row_num colspan="4" Lanthanoid
+      - atoms_3include_p6 = @atoms_p6.where(atomic_group_id: 3)
+      - atoms_3include_p6.each do |atom|
+        td.__periodic_td
+          = link_to atom.symbol.to_s, periodic_atom_path(atom.id),
+            class: 'atomic_symbol'
+
+    tr
+      th.__periodic_row_num colspan="4" Actinoid
+      - atoms_3include_p7 = @atoms_p7.where(atomic_group_id: 3)
+      - atoms_3include_p7.each do |atom|
+        td.__periodic_td
+          = link_to atom.symbol.to_s, periodic_atom_path(atom.id),
+            class: 'atomic_symbol'
 
     / tr
     /   th 7
